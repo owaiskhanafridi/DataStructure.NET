@@ -16,9 +16,8 @@ namespace MyApp
             //Console.WriteLine(LeetCode.FirstNegativeNumberInWindow(3, new int[] { 12, -1, -7, 8, -15, 30, 16, 28 }));
             //Console.WriteLine(LeetCode.OccurrenceOfAnagram("aabaabaa", "aaba"));
             //LeetCode.MaxOfAllSubArray(new int[] {1,3,-1,-3,5,3,6,7}, 3);
-            Console.WriteLine(LeetCode.LargestSubArrayOfSum(new int[] { 4, 1, 1, 1, 2, 3, 5 }, 5));
-
-
+            //Console.WriteLine(LeetCode.LargestSubArrayOfSum(new int[] { 4, 1, 1, 1, 2, 3, 5 }, 5));
+            Console.WriteLine(LeetCode.LongestSubstringWithKUniqueCharacters("aabacbebebe", 3));
         }
     }
 
@@ -233,7 +232,41 @@ namespace MyApp
             return maxSubarray;
         }
 
-        //Test comment
+        //Print the length of longest substring which has 3 unique characters
+        public static int LongestSubstringWithKUniqueCharacters(string str, int length)
+        {
+            int start = 0, end = 0, maximum = int.MinValue;
+            Dictionary<char, int> dict = new Dictionary<char, int>();
+
+            for (end = 0; end < str.Length; end++)
+            {
+                if (dict.ContainsKey(str[end]))
+                    dict[str[end]]++;
+                else
+                    dict.Add(str[end], 1);
+
+                if (dict.Count() == length)
+                {
+                    maximum = Math.Max(maximum, end - start + 1);
+                }
+
+                else if (dict.Count() > length)
+                {
+                    //Remove elements from starting window until the substring contains 3 uniques again
+                    while (dict.Count() > length)
+                    {
+                        dict[str[start]]--;
+
+                        if (dict[str[start]] == 0)
+                            dict.Remove(str[start]);
+
+                        start++;
+                    }
+                }
+            }
+
+            return maximum;
+        }
 
         #endregion SlidingWindow
     }
