@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Design;
 using System.Dynamic;
+using System.Linq.Expressions;
 
 namespace MyApp
 {
@@ -17,7 +18,8 @@ namespace MyApp
             //Console.WriteLine(LeetCode.OccurrenceOfAnagram("aabaabaa", "aaba"));
             //LeetCode.MaxOfAllSubArray(new int[] {1,3,-1,-3,5,3,6,7}, 3);
             //Console.WriteLine(LeetCode.LargestSubArrayOfSum(new int[] { 4, 1, 1, 1, 2, 3, 5 }, 5));
-            Console.WriteLine(LeetCode.LongestSubstringWithKUniqueCharacters("aabacbebebe", 3));
+            //Console.WriteLine(LeetCode.LongestSubstringWithKUniqueCharacters("aabacbebebe", 3));
+            Console.WriteLine(LeetCode.LongestSubstringWithoutRepeatingCharacters("abcadefibcka"));
         }
     }
 
@@ -267,6 +269,37 @@ namespace MyApp
 
             return maximum;
         }
+
+        public static int LongestSubstringWithoutRepeatingCharacters(string str)
+        {
+            int max = int.MinValue;
+            int start = 0, end = 0;
+            Dictionary<char, int> dict = new Dictionary<char, int>();
+
+            for (end = 0; end < str.Length; end++)
+            {
+                if (!dict.ContainsKey(str[end]))
+                    dict.Add(str[end], 1);
+                else
+                    dict[str[end]]++;
+
+                if (dict.All(x => x.Value == 1))
+                {
+                    max = Math.Max(max, end - start + 1);
+                }
+                else
+                {
+                    while (dict.Any(x => x.Value > 1))
+                    {
+                        dict[str[start]]--;
+                    }
+                    start++;
+                }
+            }
+
+            return max;
+        }
+
 
         #endregion SlidingWindow
     }
