@@ -2,6 +2,7 @@
 using System.ComponentModel.Design;
 using System.Dynamic;
 using System.Linq.Expressions;
+using System.Xml;
 
 namespace MyApp
 {
@@ -19,7 +20,7 @@ namespace MyApp
             //LeetCode.MaxOfAllSubArray(new int[] {1,3,-1,-3,5,3,6,7}, 3);
             //Console.WriteLine(LeetCode.LargestSubArrayOfSum(new int[] { 4, 1, 1, 1, 2, 3, 5 }, 5));
             //Console.WriteLine(LeetCode.LongestSubstringWithKUniqueCharacters("aabacbebebe", 3));
-            Console.WriteLine(LeetCode.LongestSubstringWithoutRepeatingCharacters("abcadefibcka"));
+            Console.WriteLine(LeetCode.PickToysOfNTypeWithSequence("abaccab", 2));
         }
     }
 
@@ -300,7 +301,43 @@ namespace MyApp
             return max;
         }
 
+        //Find the maximum number of toys of type N kept in sequence in a shelf.
+        public static int PickToysOfNTypeWithSequence(string str, int typeLength)
+        {
+            int max = int.MinValue;
+            int start = 0, end = 0;
+            Dictionary<char, int> dict = new Dictionary<char, int>();
 
-        #endregion SlidingWindow
+            //Edge case
+            if (string.IsNullOrEmpty(str) || typeLength <= 0)
+                return 0;
+
+            for (end = 0; end < str.Length; end++)
+            {
+                if (!dict.ContainsKey(str[end]))
+                    dict.Add(str[end], 1);
+                else
+                    dict[str[end]]++;
+
+                if (dict.Count > typeLength)
+                {
+                    //Start Removing elements until the dictionary size becomes typeLength
+                    while (dict.Count > typeLength)
+                    {
+                        dict[str[start]]--;
+
+                        //If a character is value is decremented to 0, remove it entirely from the dictonary
+                        if (dict[str[start]] == 0)
+                            dict.Remove(str[start]);
+
+                        start++;
+                    }
+                }
+                max = Math.Max(max, end - start + 1);
+            }
+            return max;
+
+            #endregion SlidingWindow
+        }
     }
 }
