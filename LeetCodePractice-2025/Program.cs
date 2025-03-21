@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeetCodePractice_2025;
+using System;
 using System.ComponentModel.Design;
 using System.Dynamic;
 using System.Linq.Expressions;
@@ -11,16 +12,16 @@ namespace MyApp
         static void Main(string[] args)
         {
             Console.WriteLine("Starting application...");
-
-            //Console.WriteLine(LeetCode.MaxSumOfWindowSize_BF(3, new int[] { 2, 6, 5, 1, 4, 3, 10, 7 }));
-            //Console.WriteLine(LeetCode.MaxSumOfWindowSize(3, new int[] { 2, 6, 5, 1, 4, 3, 10, 7 }));
-            //Console.WriteLine(LeetCode.MinSumOfWindowSize(3, new int[] { 2, 6, 5, 1, 4, 3, 10, 7 }));
-            //Console.WriteLine(LeetCode.FirstNegativeNumberInWindow(3, new int[] { 12, -1, -7, 8, -15, 30, 16, 28 }));
-            //Console.WriteLine(LeetCode.OccurrenceOfAnagram("aabaabaa", "aaba"));
+            //Console.WriteLine(SlidingWindow.MaxSumOfWindowSize_Practice(3, new int[] { 2, 6, 5, 1, 4, 3, 10, 7 }));
+            //Console.WriteLine(SlidingWindow.MinSumOfWindowSize_Practice(3, new int[] { 2, 6, 5, 1, 4, 3, 10, 7 }));
+            //Console.WriteLine(SlidingWindow.FirstNegativeNumbersInWindowSize_Practice(3, new int[] { 12, -1, -7, 8, -15, 30, 16, 28 }));
+            //Console.WriteLine(SlidingWindow.OccurrenceOfAnagram_Practice("aabaabaa", "aaba"));
+            //Console.WriteLine(SlidingWindow.LongestSubstringWithKUniqueCharacters_Practice("aabacbebebe", 3));
+            //Console.WriteLine(SlidingWindow.LargestSubArrayOfSum_Practice(new int[] { 4, 1, 1, 1, 2, 3, 5 }, 5));
             //LeetCode.MaxOfAllSubArray(new int[] {1,3,-1,-3,5,3,6,7}, 3);
-            //Console.WriteLine(LeetCode.LargestSubArrayOfSum(new int[] { 4, 1, 1, 1, 2, 3, 5 }, 5));
-            //Console.WriteLine(LeetCode.LongestSubstringWithKUniqueCharacters("aabacbebebe", 3));
-            Console.WriteLine(LeetCode.PickToysOfNTypeWithSequence("abaccab", 2));
+            //Console.WriteLine(LeetCode.PickToysOfNTypeWithSequence("abaccab", 2));
+
+            Console.ReadLine();
         }
     }
 
@@ -29,7 +30,7 @@ namespace MyApp
 
         #region SlidingWindow
 
-        // Find the maximum of window size size n in the number array
+        // Find the maximum of window size n in the number array
         public static string MaxSumOfWindowSize_BF(int windowSize, int[] numbers)
         {
             int currentSum = 0;
