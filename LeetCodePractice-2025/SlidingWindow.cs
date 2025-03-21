@@ -266,5 +266,50 @@ namespace LeetCodePractice_2025
             }
             return maximums;
         }
+
+        /// <summary>
+        /// Find the maximum number of toys in a sequence of type N
+        /// </summary>
+        /// <param name="toysSequence"></param>
+        /// <param name="windowSize"></param>
+        /// <returns></returns>
+        public static int PickToysOfNTypeWithSequence_Practice(string toysSequence, int typeLength)
+        {
+            int start = 0;
+            Dictionary<char, int> dict = new Dictionary<char, int>();
+            int maxToys = 0;
+
+            //Edge case
+            if (string.IsNullOrEmpty(toysSequence) || typeLength <= 0)
+                return 0;
+
+            for (int end = 0; end < toysSequence.Length; end++)
+            {
+                if (!dict.ContainsKey(toysSequence[end]))
+                    dict.Add(toysSequence[end], 1);
+                else
+                    dict[toysSequence[end]]++;
+
+                if (dict.Count > typeLength)
+                {
+                    while (dict.Count > typeLength)
+                    {
+                        dict[toysSequence[start]]--;
+
+                        if (dict[toysSequence[start]] == 0)
+                            dict.Remove(toysSequence[start]);
+
+                        start++;
+                    }
+                }
+
+                if (dict.Count == typeLength)
+                {
+                    maxToys = Math.Max(maxToys, end - start + 1);
+                }
+            }
+
+            return maxToys;
+        }
     }
 }
