@@ -18,7 +18,7 @@ namespace MyApp
             //Console.WriteLine(SlidingWindow.OccurrenceOfAnagram_Practice("aabaabaa", "aaba"));
             //Console.WriteLine(SlidingWindow.LongestSubstringWithKUniqueCharacters_Practice("aabacbebebe", 3));
             //Console.WriteLine(SlidingWindow.LargestSubArrayOfSum_Practice(new int[] { 4, 1, 1, 1, 2, 3, 5 }, 5));
-            //LeetCode.MaxOfAllSubArray(new int[] {1,3,-1,-3,5,3,6,7}, 3);
+            SlidingWindow.MaxOfAllSubArray_Practice(new int[] { 1, 3, -1, -3, 5, 3, 6, 7 }, 3);
             //Console.WriteLine(LeetCode.PickToysOfNTypeWithSequence("abaccab", 2));
 
             Console.ReadLine();

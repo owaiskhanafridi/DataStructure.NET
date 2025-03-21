@@ -226,5 +226,45 @@ namespace LeetCodePractice_2025
 
             return maxLength;
         }
+
+        /// <summary>
+        /// Find the maximum values from all the subarray's of window size N
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="windowSize"></param>
+        /// <returns></returns>
+        public static List<int> MaxOfAllSubArray_Practice(int[] arr, int windowSize)
+        {
+            int start = 0;
+            Queue<int> temp = new Queue<int>();
+            List<int> maximums = new List<int>();
+
+            for (int end = 0; end < arr.Length; end++)
+            {
+                if (temp.Count == 0)
+                    temp.Enqueue(arr[end]);
+
+                //If next element is highet than existing element, then replace it as
+                //it will be of no use now or in the future
+                if (temp.Peek() < arr[end])
+                {
+                    temp.Dequeue();
+                    temp.Enqueue(arr[end]);
+                }
+
+                if (end - start + 1 == windowSize)
+                {
+                    maximums.Add(temp.Peek());
+
+                    //if previous highest element (temp.Peek()) was the first element of the window
+                    //then it will be of no use in future. So remove it from the temp queue
+                    if (temp.Peek() == arr[start])
+                        temp.Dequeue();
+
+                    start++;
+                }
+            }
+            return maximums;
+        }
     }
 }
