@@ -89,11 +89,14 @@ namespace LeetCodePractice_2025
 
                 if (end - start + 1 == windowSize)
                 {
+                    //checking Count > 0 is an edge case
                     if (tempHolder.Count > 0)
                         negatives.Add(tempHolder.Peek());
+                    //edge case
                     else
                         negatives.Add(0);
 
+                    //checking Count > 0 is an edge case
                     if (tempHolder.Count > 0 && numbers[start] == tempHolder.Peek())
                         tempHolder.Dequeue();
 
