@@ -12,14 +12,77 @@ namespace MyApp
         static void Main(string[] args)
         {
             Console.WriteLine("Starting application...");
+
+            #region Sliding_Window_Callings
+
             //Console.WriteLine(SlidingWindow.MaxSumOfWindowSize_Practice(3, new int[] { 2, 6, 5, 1, 4, 3, 10, 7 }));
             //Console.WriteLine(SlidingWindow.MinSumOfWindowSize_Practice(3, new int[] { 2, 6, 5, 1, 4, 3, 10, 7 }));
             //Console.WriteLine(SlidingWindow.FirstNegativeNumbersInWindowSize_Practice(3, new int[] { 12, -1, -7, 8, -15, 30, 16, 28 }));
             //Console.WriteLine(SlidingWindow.OccurrenceOfAnagram_Practice("aabaabaa", "aaba"));
             //Console.WriteLine(SlidingWindow.LongestSubstringWithKUniqueCharacters_Practice("aabacbebebe", 3));
             //Console.WriteLine(SlidingWindow.LargestSubArrayOfSum_Practice(new int[] { 4, 1, 1, 1, 2, 3, 5 }, 5));
-            SlidingWindow.MaxOfAllSubArray_Practice(new int[] { 1, 3, -1, -3, 5, 3, 6, 7 }, 3);
-            Console.WriteLine(SlidingWindow.PickToysOfNTypeWithSequence_Practice("abaccab", 2));
+            //SlidingWindow.MaxOfAllSubArray_Practice(new int[] { 1, 3, -1, -3, 5, 3, 6, 7 }, 3);
+            //Console.WriteLine(SlidingWindow.PickToysOfNTypeWithSequence_Practice("abaccab", 2));
+
+            #endregion Sliding_Window_Callings
+
+            #region DataStructure
+
+            //DataStructures.List();
+            //DataStructures.LinkedList();
+            //DataStructures.Queue();
+            //DataStructures.HashSet();
+            //DataStructures.BitArray();
+            //DataStructures.PriorityQueue();
+
+
+            #endregion
+
+            #region BreathFirstSearch - Callings
+
+            //BreathFirstSearch.InitialSetup();
+            //BreathFirstSearch.StepsOfKnight(new int[] { 4, 5 }, new int[] { 1, 1 }, 6);
+            //BreathFirstSearch.StepsOfKnight(new int[] { 4, 5 }, new int[] { 6, 1 }, 6);
+            //BreathFirstSearch.CheckIfPathExist(BreathFirstSearch.BFS,
+            //    new List<int[]>() {
+            //        new int[] { 1,0},
+            //        new int[] { 1,2},
+            //        new int[] { 3,5},
+            //        new int[] { 3,4},
+            //    }, 1, 3);
+
+            //DepthFirstSearch.CheckIfPathExist(DepthFirstSearch.DFS,
+            //    new List<int[]>() {
+            //    new int[] { 1,0},
+            //    new int[] { 1,2},
+            //    new int[] { 3,5},
+            //    new int[] { 3,4},
+            //    }, 1, 3);
+
+            //DepthFirstSearch.CheckIfPathExist(DepthFirstSearch.DFS,
+            //    new List<int[]>() {
+            //        new int[] { 1,2 },
+            //        new int[] { 1,3 },
+            //        new int[] { 2,4 },
+            //        new int[] { 2,5 },
+            //        new int[] { 3,6 },
+            //    }, 1, 3);
+            #endregion
+
+            #region Amazon Top Questions - Callings
+
+            var indices = AmazonTopQuestions.TwoSum(new int[] { 1, 3, 3, 4 }, 5);
+            Console.WriteLine($"Target: 5, indices: {indices[0]} ,{indices[1]}");
+
+            indices = AmazonTopQuestions.TwoSum(new int[] { 1, 3, 3, 4 }, 6);
+            Console.WriteLine($"Target: 5, indices: {indices[0]} ,{indices[1]}");
+
+            Console.WriteLine($"Minimum Operations Required to make all element Zero is: " +
+                $"{AmazonTopQuestions.MinimumOperations(new int[] { 1, 5, 0, 3, 5 })}");
+
+
+            AmazonTopQuestions.ThreeSum(new int[] { -1, -1, -1, 0, 1, 1, 1, 2 }, 0);
+            #endregion
 
             Console.ReadLine();
         }
