@@ -314,5 +314,34 @@ namespace LeetCodePractice_2025
 
             return maxToys;
         }
+
+        /// <summary>
+        /// Remove duplicates from sorted 
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public static int RemoveDuplicatesFromSorterArray(int[] nums)
+        {
+            if (nums.Length == 0)
+                return 0;
+
+            int i = 1;
+            bool replaced = false;
+
+            for (int j = 1; j < nums.Length; j++)
+            {
+                if (nums[j] != nums[i - 1])
+                {
+                    nums[i] = nums[j];
+                    i++;
+                    replaced = true;
+                }
+            }
+
+            if (!replaced)
+                return 0;
+
+            return i;
+        }
     }
 }
