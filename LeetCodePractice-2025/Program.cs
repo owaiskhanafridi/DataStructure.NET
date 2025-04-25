@@ -23,6 +23,7 @@ namespace MyApp
             //Console.WriteLine(SlidingWindow.LargestSubArrayOfSum_Practice(new int[] { 4, 1, 1, 1, 2, 3, 5 }, 5));
             //SlidingWindow.MaxOfAllSubArray_Practice(new int[] { 1, 3, -1, -3, 5, 3, 6, 7 }, 3);
             //Console.WriteLine(SlidingWindow.PickToysOfNTypeWithSequence_Practice("abaccab", 2));
+            Console.WriteLine(SlidingWindow.RemoveDuplicatesFromSorterArray(new int[] { 0, 0, 1, 1, 2, 2, 3, 3, 4 }));
 
             #endregion Sliding_Window_Callings
 
@@ -33,7 +34,7 @@ namespace MyApp
             //DataStructures.Queue();
             //DataStructures.HashSet();
             //DataStructures.BitArray();
-            //DataStructures.PriorityQueue();
+            //DataStructures.PriorityQueueAndHeap();
 
 
             #endregion
@@ -82,6 +83,16 @@ namespace MyApp
 
 
             AmazonTopQuestions.ThreeSum(new int[] { -1, -1, -1, 0, 1, 1, 1, 2 }, 0);
+            #endregion
+
+            #region Heap
+
+            Heap.FindKSmallestElement(new int[] { 7, 10, 4, 3, 20, 15 }, 3);
+            Heap.FindKHighestSalary(new int[] { 2000, 5000, 1000, 6000, 7000, 3000 }, 3);
+            Heap.SortKSortedArray(new int[] { 6, 5, 3, 2, 8, 10, 9 }, 3);
+            Heap.FindKLargestElements(new int[] { 7, 10, 4, 3, 20, 15 }, 3);
+            Heap.FindKLargestElements(new int[] { 7, 10, 4, 3, 20, 15, 21, 1, 2 }, 2);
+
             #endregion
 
             Console.ReadLine();

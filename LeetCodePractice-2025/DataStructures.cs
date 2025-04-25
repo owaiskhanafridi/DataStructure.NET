@@ -274,7 +274,12 @@ namespace LeetCodePractice_2025
 
         }
 
-        public static void PriorityQueue()
+        /// <summary>
+        /// PriorityQueue is the data structure used for heap in c#
+        /// by default, priorityQueue is minHeap --> minHeap.Enqueue(item,item)
+        /// for maxHeap --> maxHeap.Enqueue(item, -item)
+        /// </summary>
+        public static void PriorityQueueAndHeap()
         {
             var pq = new PriorityQueue<string, int>();
 
@@ -298,8 +303,28 @@ namespace LeetCodePractice_2025
             //Clean room
             //Play games
 
-            //Peek operation crashes on emply queue. Use TryPeek()
-            pq.Peek();
+            //Peek operation crashes on empty queue. Use TryPeek()
+            //pq.Peek();
+
+
+            //PriorityQueue are used for heap in C#
+            PriorityQueue<int,int> minHeap = new PriorityQueue<int,int>();
+            PriorityQueue<int, int> maxHeap = new PriorityQueue<int, int>();
+
+
+            var array = new int[] { 7, 10, 4, 3, 20, 15};
+
+            for(int counter=0; counter < array.Length; counter++)
+            {
+                minHeap.Enqueue(array[counter], array[counter]);
+            }
+
+            for (int counter = 0; counter < array.Length; counter++)
+            {
+                maxHeap.Enqueue(array[counter], -array[counter]);
+            }
+
+
 
         }
 
