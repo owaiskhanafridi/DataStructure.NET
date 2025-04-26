@@ -113,5 +113,43 @@ namespace LeetCodePractice_2025
             }
             return largestElements;
         }
+
+
+        /// <summary>
+        /// Find the K closest elements to X. The array may or may not be sorted
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="k"></param>
+        /// <param name="x"></param>
+        /// <returns></returns>
+        public static List<int> FindKClosestElements(int[] nums, int k, int x)
+        {
+            var closestElements = new List<int>();
+            
+            //We need to preserve actual element as well to get in the end.
+            var maxHeap = new PriorityQueue<KeyValuePair<int, int>, int>();
+
+            for (int counter = 0; counter < nums.Length; counter++)
+            {
+                //find the difference of elements and add them to maxHeap so they're added in ascending order.
+                var difference = x - nums[counter];
+                var element = new KeyValuePair<int, int>(Math.Abs(difference), nums[counter]);
+                maxHeap.Enqueue(element, -difference);
+
+                //Since the heap is maxHeap (ascending sorted), remove all higher elements if it exceeds the k limit
+                if (maxHeap.Count > k)
+                {
+                    maxHeap.Dequeue();
+                }
+            }
+
+            while(maxHeap.Count > 0)
+            {
+                var element = maxHeap.Dequeue();
+                closestElements.Add(element.Value);
+            }
+
+            return closestElements;
+        }
     }
 }

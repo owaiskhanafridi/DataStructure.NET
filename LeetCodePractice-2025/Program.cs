@@ -92,6 +92,8 @@ namespace MyApp
             Heap.SortKSortedArray(new int[] { 6, 5, 3, 2, 8, 10, 9 }, 3);
             Heap.FindKLargestElements(new int[] { 7, 10, 4, 3, 20, 15 }, 3);
             Heap.FindKLargestElements(new int[] { 7, 10, 4, 3, 20, 15, 21, 1, 2 }, 2);
+            Heap.FindKClosestElements(new int[] { 5, 6, 7, 8, 9 }, 3, 7);
+            Heap.FindKClosestElements(new int[] { 9, 6, 7, 8, 5 }, 3, 7);
 
             #endregion
 
