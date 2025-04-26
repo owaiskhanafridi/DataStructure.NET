@@ -100,7 +100,7 @@ namespace LeetCodePractice_2025
         public static List<int> FindKLargestElements(int[] nums, int k)
         {
             var minHeap = new PriorityQueue<int, int>();
-            var largestElements= new List<int>();
+            var largestElements = new List<int>();
 
             foreach (var num in nums)
             {
@@ -113,7 +113,7 @@ namespace LeetCodePractice_2025
             }
 
             while (minHeap.Count > 0)
-            { 
+            {
                 largestElements.Add(minHeap.Dequeue());
             }
 
@@ -131,7 +131,7 @@ namespace LeetCodePractice_2025
         public static List<int> FindKClosestElements(int[] nums, int k, int x)
         {
             var closestElements = new List<int>();
-            
+
             //We need to preserve actual element as well to get in the end.
             var maxHeap = new PriorityQueue<KeyValuePair<int, int>, int>();
 
@@ -149,13 +149,61 @@ namespace LeetCodePractice_2025
                 }
             }
 
-            while(maxHeap.Count > 0)
+            while (maxHeap.Count > 0)
             {
                 var element = maxHeap.Dequeue();
                 closestElements.Add(element.Value);
             }
 
             return closestElements;
+        }
+
+        /// <summary>
+        /// Find the top K frequent numbers where K is given.
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="k"></param>
+        /// <returns></returns>
+        public static int[] FindTopKFrequentNumbers(int[] nums, int k)
+        {
+            var visited = new Dictionary<int, int>();
+            var minHeap = new PriorityQueue<KeyValuePair<int, int>, int>();
+            //var topFrequentElements = new List<int>();
+            
+            //If we exactly know how many numbers will be returned, we can simply initialize an int[k] and return it.
+            //This way we dont need to convert it to a int[] through ToArray() if we take List<int>
+            var returningValue = new int[k];
+
+            for (int counter = 0; counter < nums.Length; counter++)
+            {
+                if (!visited.ContainsKey(nums[counter]))
+                    visited.Add(nums[counter], 0);
+
+
+                visited[nums[counter]]++;
+            }
+
+            foreach (var item in visited)
+            {
+                var element = new KeyValuePair<int, int>(item.Key, item.Value);
+                minHeap.Enqueue(element, element.Value);
+
+                if (minHeap.Count > k)
+                {
+                    minHeap.Dequeue();
+                }
+            }
+
+            int i = 0;
+            while (minHeap.Count > 0)
+            { 
+                var element = minHeap.Dequeue();
+                //topFrequentElements.Add(element.Key);
+                returningValue[i] = element.Key;
+                i++;
+            }
+            //return topFrequentElements.ToArray();
+            return returningValue;
         }
     }
 }
