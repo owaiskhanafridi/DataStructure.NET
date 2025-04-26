@@ -99,18 +99,24 @@ namespace LeetCodePractice_2025
         /// <returns></returns>
         public static List<int> FindKLargestElements(int[] nums, int k)
         {
-            var maxHeap = new PriorityQueue<int, int>();
-            var largestElements = new List<int>();
+            var minHeap = new PriorityQueue<int, int>();
+            var largestElements= new List<int>();
 
             foreach (var num in nums)
             {
-                maxHeap.Enqueue(num, -num);
+                minHeap.Enqueue(num, num);
 
-                if (maxHeap.Count > nums.Length - k)
+                if (minHeap.Count > k)
                 {
-                    largestElements.Add(maxHeap.Dequeue());
+                    minHeap.Dequeue();
                 }
             }
+
+            while (minHeap.Count > 0)
+            { 
+                largestElements.Add(minHeap.Dequeue());
+            }
+
             return largestElements;
         }
 
