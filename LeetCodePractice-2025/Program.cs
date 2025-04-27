@@ -104,6 +104,8 @@ namespace MyApp
                 new int[] {0,1 } 
                 }
                 , 2);
+
+            Heap.ConnectRopesToMinimizeCost(new int[] { 1, 2, 3, 4, 5 });
             #endregion
 
             Console.ReadLine();

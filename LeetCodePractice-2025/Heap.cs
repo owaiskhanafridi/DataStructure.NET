@@ -303,5 +303,39 @@ namespace LeetCodePractice_2025
 
             return result;
         }
+        
+        /// <summary>
+        /// Find the total cost of the rope of given length in such a way that it returns minimum cost when adding each other.
+        /// Each rope cost something. rope of legth 2 cost $2.
+        /// Trick is to add them together in such a way that it returns the minimum cost.
+        /// </summary>
+        /// <param name="ropes"></param>
+        /// <returns></returns>
+        public static int ConnectRopesToMinimizeCost(int[] ropes)
+        {
+            int totalCost = 0;
+            var minHeap = new PriorityQueue<int, int>();
+
+            //Creating a minHeap so only minimum length ropes are eliminated to be added.
+            for (int counter = 0; counter < ropes.Length; counter++)
+            {
+                minHeap.Enqueue(ropes[counter], ropes[counter]);
+            }
+
+            //Run until the length is less than or equal to 2 because 
+            //we add 2 ropes on each iteration. and Add it back to the 
+            //minHeap so it checks whether to add it in next iteration
+            //(based on it being minimum) or no.
+
+            while (minHeap.Count >= 2)
+            {
+                int first = minHeap.Dequeue();
+                int second = minHeap.Dequeue();
+                totalCost += first + second;
+                minHeap.Enqueue(first + second, first+second);
+            }
+
+            return totalCost;
+        }
     }
 }
