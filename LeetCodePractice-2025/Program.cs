@@ -35,6 +35,7 @@ namespace MyApp
             //DataStructures.HashSet();
             //DataStructures.BitArray();
             //DataStructures.PriorityQueueAndHeap();
+            DataStructures.MultiDimenstionArrays();
 
 
             #endregion
