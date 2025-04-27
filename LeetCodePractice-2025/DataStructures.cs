@@ -351,8 +351,8 @@ namespace LeetCodePractice_2025
             arr2[0,1] = 2;
 
             //Will crash because max row length is 4 (max row: 3).
-            arr2[4, 0] = 3;
-            arr2[4, 1] = 7;
+            //arr2[4, 0] = 3;
+            //arr2[4, 1] = 7;
 
         }
     }
