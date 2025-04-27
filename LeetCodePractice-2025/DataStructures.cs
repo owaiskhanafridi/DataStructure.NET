@@ -328,5 +328,32 @@ namespace LeetCodePractice_2025
 
         }
 
+        public static void MultiDimenstionArrays() 
+        {
+            //Option 1: int[][]
+            
+            //rows must be defined
+            int[][] arr1 = new int[2][];
+
+            //initializing first array of arr to contain an array of size 2. Example: [2,3
+            arr1[0] = new int[2];
+
+            //This operation cannot happen directly without initializing the array in above line.
+            arr1[0][0] = 2;
+            arr1[0][1] = 3;
+
+            //Option 2: int[,]
+
+            //Both row and columns must be defined
+            int[,] arr2 = new int[4,2];
+
+            arr2[0,0] = 1;
+            arr2[0,1] = 2;
+
+            //Will crash because max row length is 4 (max row: 3).
+            arr2[4, 0] = 3;
+            arr2[4, 1] = 7;
+
+        }
     }
 }
