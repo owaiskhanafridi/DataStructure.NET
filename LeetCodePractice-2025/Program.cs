@@ -88,15 +88,22 @@ namespace MyApp
 
             #region Heap
 
-            Heap.FindKSmallestElement(new int[] { 7, 10, 4, 3, 20, 15 }, 3);
-            Heap.FindKHighestSalary(new int[] { 2000, 5000, 1000, 6000, 7000, 3000 }, 3);
-            Heap.SortKSortedArray(new int[] { 6, 5, 3, 2, 8, 10, 9 }, 3);
-            Heap.FindKLargestElements(new int[] { 7, 10, 4, 3, 20, 15 }, 3);
-            Heap.FindKLargestElements(new int[] { 7, 10, 4, 3, 20, 15, 21, 1, 2 }, 2);
-            Heap.FindKClosestElements(new int[] { 5, 6, 7, 8, 9 }, 3, 7);
-            Heap.FindKClosestElements(new int[] { 9, 6, 7, 8, 5 }, 3, 7);
-            Heap.FindTopKFrequentNumbers(new int[] { 1, 1, 1, 6, 6, 3, 2, 2, 4, 6, 6 }, 2);
-            Heap.FrequencySort(new int[] { 1, 1, 1, 3, 2, 2, 4 });
+            //Heap.FindKSmallestElement(new int[] { 7, 10, 4, 3, 20, 15 }, 3);
+            //Heap.FindKHighestSalary(new int[] { 2000, 5000, 1000, 6000, 7000, 3000 }, 3);
+            //Heap.SortKSortedArray(new int[] { 6, 5, 3, 2, 8, 10, 9 }, 3);
+            //Heap.FindKLargestElements(new int[] { 7, 10, 4, 3, 20, 15 }, 3);
+            //Heap.FindKLargestElements(new int[] { 7, 10, 4, 3, 20, 15, 21, 1, 2 }, 2);
+            //Heap.FindKClosestElements(new int[] { 5, 6, 7, 8, 9 }, 3, 7);
+            //Heap.FindKClosestElements(new int[] { 9, 6, 7, 8, 5 }, 3, 7);
+            //Heap.FindTopKFrequentNumbers(new int[] { 1, 1, 1, 6, 6, 3, 2, 2, 4, 6, 6 }, 2);
+            //Heap.FrequencySort(new int[] { 1, 1, 1, 3, 2, 2, 4 });
+            Heap.FindKClosestPointsFromOrigin(new int[][] { 
+                new int[] {1,3 },
+                new int[]  {-2,2 },
+                new int[] {5,8 },
+                new int[] {0,1 } 
+                }
+                , 2);
             #endregion
 
             Console.ReadLine();

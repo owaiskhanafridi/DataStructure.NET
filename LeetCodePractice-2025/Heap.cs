@@ -120,7 +120,6 @@ namespace LeetCodePractice_2025
             return largestElements;
         }
 
-
         /// <summary>
         /// Find the K closest elements to X. The array may or may not be sorted
         /// </summary>
@@ -169,7 +168,7 @@ namespace LeetCodePractice_2025
             var visited = new Dictionary<int, int>();
             var minHeap = new PriorityQueue<KeyValuePair<int, int>, int>();
             //var topFrequentElements = new List<int>();
-            
+
             //If we exactly know how many numbers will be returned, we can simply initialize an int[k] and return it.
             //This way we dont need to convert it to a int[] through ToArray() if we take List<int>
             var returningValue = new int[k];
@@ -196,7 +195,7 @@ namespace LeetCodePractice_2025
 
             int i = 0;
             while (minHeap.Count > 0)
-            { 
+            {
                 var element = minHeap.Dequeue();
                 //topFrequentElements.Add(element.Key);
                 returningValue[i] = element.Key;
@@ -219,11 +218,11 @@ namespace LeetCodePractice_2025
             //Default capacity is 4. It becomes double when the capacity is reached. 
             //If a capacity is predefined, we dont need to add more extra memory which might not be consumed.
             //var list = new List<int>(nums.Length);
-            
+
             //Alternatively, we can directly add numbers to int[nums.Length] variable.
             //This way, we can simply return int[] instead of List<int>.ToArray() and save the program from this loop.
-            var result = new int[nums.Length];  
-            
+            var result = new int[nums.Length];
+
             var tempStore = new Dictionary<int, int>();
             var maxHeap = new PriorityQueue<KeyValuePair<int, int>, int>();
 
@@ -243,7 +242,7 @@ namespace LeetCodePractice_2025
 
             //This variable decides the next input location for the result
             int nextIndex = 0;
-            
+
             while (maxHeap.Count > 0)
             {
                 var element = maxHeap.Dequeue();
@@ -260,10 +259,49 @@ namespace LeetCodePractice_2025
             }
 
             //return list.ToArray();
-    
+
             //We can also utilize int[] variable and directly return it so we dont have to do .ToArray().
             return result;
 
+        }
+
+        /// <summary>
+        /// Find the closest points from the origin when multiple points are given.
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="k"></param>
+        /// <returns></returns>
+        public static int[][] FindKClosestPointsFromOrigin(int[][] arr, int k)
+        {
+            var result = new int[k][];
+            var maxHeap = new PriorityQueue<KeyValuePair<int, int>, double>();
+
+            //Origin points
+            int x1 = 0;
+            int y1 = 0;
+
+            for (int row = 0; row < arr.GetLength(0); row++)
+            {
+                var x2 = arr[row][0];
+                var y2 = arr[row][1];
+                var distance = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
+                maxHeap.Enqueue(new KeyValuePair<int, int>(x2, y2), -distance);
+
+                if (maxHeap.Count > k)
+                    maxHeap.Dequeue();
+            }
+
+            int r = 0;
+            while (maxHeap.Count > 0)
+            {
+                var element = maxHeap.Dequeue();
+                result[r] = new int[2];
+                result[r][0] = element.Key;
+                result[r][1] = element.Value;
+                r++;
+            }
+
+            return result;
         }
     }
 }
