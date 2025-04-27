@@ -94,7 +94,8 @@ namespace MyApp
             Heap.FindKLargestElements(new int[] { 7, 10, 4, 3, 20, 15, 21, 1, 2 }, 2);
             Heap.FindKClosestElements(new int[] { 5, 6, 7, 8, 9 }, 3, 7);
             Heap.FindKClosestElements(new int[] { 9, 6, 7, 8, 5 }, 3, 7);
-            Heap.FindTopKFrequentNumbers(new int[] { 1, 1, 1,6,6, 3, 2, 2, 4,6 ,6 }, 2);
+            Heap.FindTopKFrequentNumbers(new int[] { 1, 1, 1, 6, 6, 3, 2, 2, 4, 6, 6 }, 2);
+            Heap.FrequencySort(new int[] { 1, 1, 1, 3, 2, 2, 4 });
             #endregion
 
             Console.ReadLine();

@@ -205,5 +205,65 @@ namespace LeetCodePractice_2025
             //return topFrequentElements.ToArray();
             return returningValue;
         }
+
+        /// <summary>
+        /// Return the list of element based on their higher - lower frequency
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        // Example Input {1,1,1,3,2,2,4}
+        // TODO: Try directly using an int[nums.Length] to store element. Use some calculation to analyze the next adding index  
+        public static int[] FrequencySort(int[] nums)
+        {
+            //Intializing a list with hardcoded length slightly improves the efficiency.
+            //Default capacity is 4. It becomes double when the capacity is reached. 
+            //If a capacity is predefined, we dont need to add more extra memory which might not be consumed.
+            //var list = new List<int>(nums.Length);
+            
+            //Alternatively, we can directly add numbers to int[nums.Length] variable.
+            //This way, we can simply return int[] instead of List<int>.ToArray() and save the program from this loop.
+            var result = new int[nums.Length];  
+            
+            var tempStore = new Dictionary<int, int>();
+            var maxHeap = new PriorityQueue<KeyValuePair<int, int>, int>();
+
+            //Build a dictionary
+            for (int counter = 0; counter < nums.Length; counter++)
+            {
+                if (!tempStore.ContainsKey(nums[counter]))
+                    tempStore.Add(nums[counter], 0);
+
+                tempStore[nums[counter]]++;
+            }
+
+            foreach (var item in tempStore)
+            {
+                maxHeap.Enqueue(item, -item.Value);
+            }
+
+            //This variable decides the next input location for the result
+            int nextIndex = 0;
+            
+            while (maxHeap.Count > 0)
+            {
+                var element = maxHeap.Dequeue();
+                //list.AddRange(Enumerable.Repeat(element.Key, element.Value));
+
+                //Using a manual for loop instead of above Enumerable.Repeat can give tiny performance gain
+                //when using elements in millions.
+                for (int i = 0; i < element.Value; i++)
+                {
+                    // list.Add(element.Key);
+                    result[nextIndex] = element.Key;
+                    nextIndex++;
+                }
+            }
+
+            //return list.ToArray();
+    
+            //We can also utilize int[] variable and directly return it so we dont have to do .ToArray().
+            return result;
+
+        }
     }
 }
