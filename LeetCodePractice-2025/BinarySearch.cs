@@ -17,6 +17,14 @@ namespace LeetCodePractice_2025
         /// <returns></returns>
         public static int BasicProgram(int[] nums, int target)
         {
+            //Edge case
+            if (nums.Length == 1)
+                return nums[0] == target ? 0 : -1;
+
+            //Edge case
+            if (nums.Length == 0)
+                return -1;
+
             int start = 0;
             int end = nums.Length - 1;
             int middle;
@@ -87,9 +95,11 @@ namespace LeetCodePractice_2025
         /// <returns></returns>
         public static int OrderIsNotGiven(int[] nums, int target)
         {
+            //Edge case
             if (nums.Length == 1)
                 return nums[0] == target ? 0 : -1;
 
+            //Edge case
             if (nums.Length == 0)
                 return -1;
 
@@ -135,6 +145,80 @@ namespace LeetCodePractice_2025
 
             //Return -1 if the number is not found.
             return -1;
+        }
+
+        public static int FirstOccurenceOfTarget(int[] nums, int target)
+        {
+            //Edge case
+            if (nums.Length == 1)
+                return nums[0] == target ? 0 : -1;
+
+            //Edge case
+            if (nums.Length == 0)
+                return -1;
+
+            int start = 0;
+            int end = nums.Length - 1;
+            int startIndex = -1;
+            int middle;
+
+            while (start <= end)
+            {
+                middle = start + (end - start) / 2;
+
+                if (nums[middle] == target)
+                {
+                    startIndex = middle;
+                    end = middle - 1;
+                }
+                else if (target > nums[middle])
+                {
+                    start = middle + 1;
+                }
+                else
+                {
+                    end = middle - 1;
+                }
+            }
+
+            return startIndex;
+        }
+
+        public static int LastOccurenceOfTarget(int[] nums, int target)
+        {
+            //Edge case
+            if (nums.Length == 1)
+                return nums[0] == target ? 0 : -1;
+
+            //Edge case
+            if (nums.Length == 0)
+                return -1;
+
+            int start = 0;
+            int end = nums.Length - 1;
+            int lastIndex = -1;
+            int middle;
+
+            while (start <= end)
+            {
+                middle = start + (end - start) / 2;
+
+                if (nums[middle] == target)
+                {
+                    lastIndex = middle;
+                    start = middle + 1;
+                }
+                else if (target > nums[middle])
+                {
+                    start = middle + 1;
+                }
+                else
+                {
+                    end = middle - 1;
+                }
+            }
+
+            return lastIndex;
         }
     }
 }
