@@ -86,7 +86,7 @@ namespace MyApp
             AmazonTopQuestions.ThreeSum(new int[] { -1, -1, -1, 0, 1, 1, 1, 2 }, 0);
             #endregion
 
-            #region Heap
+            #region Heap - Callings
 
             //Heap.FindKSmallestElement(new int[] { 7, 10, 4, 3, 20, 15 }, 3);
             //Heap.FindKHighestSalary(new int[] { 2000, 5000, 1000, 6000, 7000, 3000 }, 3);
@@ -97,17 +97,22 @@ namespace MyApp
             //Heap.FindKClosestElements(new int[] { 9, 6, 7, 8, 5 }, 3, 7);
             //Heap.FindTopKFrequentNumbers(new int[] { 1, 1, 1, 6, 6, 3, 2, 2, 4, 6, 6 }, 2);
             //Heap.FrequencySort(new int[] { 1, 1, 1, 3, 2, 2, 4 });
-            Heap.FindKClosestPointsFromOrigin(new int[][] {
-                new int[] {1,3 },
-                new int[]  {-2,2 },
-                new int[] {5,8 },
-                new int[] {0,1 }
-                }
-                , 2);
+            //Heap.FindKClosestPointsFromOrigin(new int[][] {
+            //    new int[] {1,3 },
+            //    new int[]  {-2,2 },
+            //    new int[] {5,8 },
+            //    new int[] {0,1 }
+            //    }
+            //    , 2);
 
-            Heap.ConnectRopesToMinimizeCost(new int[] { 1, 2, 3, 4, 5 });
+            //Heap.ConnectRopesToMinimizeCost(new int[] { 1, 2, 3, 4, 5 });
 
-            Heap.FindSumBetweenK1AndK2SmallestNumbers(new int[] { 1, 3, 12, 5, 15, 11 },3,6);
+            //Heap.FindSumBetweenK1AndK2SmallestNumbers(new int[] { 1, 3, 12, 5, 15, 11 },3,6);
+            #endregion
+
+            #region BinarySearch - Callings
+
+            Console.WriteLine($" The searched element is at index: {BinarySearch.BinarySearch_BasicProgram(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 10)}");
             #endregion
 
             Console.ReadLine();
