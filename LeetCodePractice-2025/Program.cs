@@ -97,15 +97,17 @@ namespace MyApp
             //Heap.FindKClosestElements(new int[] { 9, 6, 7, 8, 5 }, 3, 7);
             //Heap.FindTopKFrequentNumbers(new int[] { 1, 1, 1, 6, 6, 3, 2, 2, 4, 6, 6 }, 2);
             //Heap.FrequencySort(new int[] { 1, 1, 1, 3, 2, 2, 4 });
-            Heap.FindKClosestPointsFromOrigin(new int[][] { 
+            Heap.FindKClosestPointsFromOrigin(new int[][] {
                 new int[] {1,3 },
                 new int[]  {-2,2 },
                 new int[] {5,8 },
-                new int[] {0,1 } 
+                new int[] {0,1 }
                 }
                 , 2);
 
             Heap.ConnectRopesToMinimizeCost(new int[] { 1, 2, 3, 4, 5 });
+
+            Heap.FindSumBetweenK1AndK2SmallestNumbers(new int[] { 1, 3, 12, 5, 15, 11 },3,6);
             #endregion
 
             Console.ReadLine();
