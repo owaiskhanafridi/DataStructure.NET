@@ -112,7 +112,11 @@ namespace MyApp
 
             #region BinarySearch - Callings
 
-            Console.WriteLine($" The searched element is at index: {BinarySearch.BinarySearch_BasicProgram(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 10)}");
+            Console.WriteLine($" The searched element is at index: {BinarySearch.BasicProgram(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 3)}");
+            Console.WriteLine($" The searched element is at index: {BinarySearch.SortedReverse(new int[] { 7, 6, 5, 4, 3, 2, 1 }, 6)}");
+            Console.WriteLine($" ORDER NOT GIVEN: The searched element is at index: {BinarySearch.OrderIsNotGiven(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 6)}");
+            
+
             #endregion
 
             Console.ReadLine();
