@@ -337,10 +337,16 @@ namespace LeetCodePractice_2025
 
             return totalCost;
         }
-
+        /// <summary>
+        /// Find the sum of numbers between K1th and K2th elements.
+        /// Utilize already created method.
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="k1"></param>
+        /// <param name="k2"></param>
+        /// <returns></returns>
         public static int FindSumBetweenK1AndK2SmallestNumbers(int[] nums, int k1, int k2)
         { 
-            
             int k1SmallestNumber = FindKSmallestElement(nums, k1);
             int k2SmallestNumber = FindKSmallestElement(nums, k2);
             int totalSum = 0;
@@ -352,7 +358,6 @@ namespace LeetCodePractice_2025
             }
 
             return totalSum;
-
         }
     }
 }
