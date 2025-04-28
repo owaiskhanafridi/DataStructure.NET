@@ -26,7 +26,7 @@ namespace LeetCodePractice_2025
             {
                 maxHeap.Enqueue(nums[counter], -nums[counter]);
 
-                if (maxHeap.Count > 3)
+                if (maxHeap.Count > k)
                 {
                     maxHeap.Dequeue();
                 }
@@ -336,6 +336,23 @@ namespace LeetCodePractice_2025
             }
 
             return totalCost;
+        }
+
+        public static int FindSumBetweenK1AndK2SmallestNumbers(int[] nums, int k1, int k2)
+        { 
+            
+            int k1SmallestNumber = FindKSmallestElement(nums, k1);
+            int k2SmallestNumber = FindKSmallestElement(nums, k2);
+            int totalSum = 0;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] > k1SmallestNumber && nums[i] < k2SmallestNumber)
+                    totalSum += nums[i];
+            }
+
+            return totalSum;
+
         }
     }
 }
