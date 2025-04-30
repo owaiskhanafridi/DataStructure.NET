@@ -220,5 +220,26 @@ namespace LeetCodePractice_2025
 
             return lastIndex;
         }
+
+        /// <summary>
+        /// Count of occurence of a number, 
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public static int CountOfOccurences(int[] nums, int target)
+        {
+            if (nums.Length == 0)
+                return 0;
+
+            int firstOccurenceIndex = FirstOccurenceOfTarget(nums, target);
+            int lastOccurenceIndex = LastOccurenceOfTarget(nums, target);
+
+            if (firstOccurenceIndex < 0 || lastOccurenceIndex < 0)
+                return 0;
+
+            return lastOccurenceIndex - firstOccurenceIndex + 1;
+        }
+
     }
 }
