@@ -260,6 +260,12 @@ namespace LeetCodePractice_2025
             {
                 mid = start + (end - start) / 2;
 
+                //If the middle element is smaller than both it's previous and next element, then it's the smallest
+                //element hence the point where rotation started.
+                //the length - this index would be the answer.
+                //previous= [mid-1+n%n] because the mid could be nums[0] => nums[-1] (out of bound error)
+                //next= [mid+1%n] because the mid could be nums[nums.Length - 1] => nums[nums.Length +1] (out of bound error)
+
                 if (nums[mid] < nums[mid - 1 + n % n] && nums[mid] < nums[mid + 1 % n])
                     return n - mid;
                 else if (nums[0] < nums[mid])
