@@ -118,7 +118,9 @@ namespace MyApp
             //Console.WriteLine($" First Occurance of number is at index : {BinarySearch.FirstOccurenceOfTarget(new int[] { 1, 2, 3, 7, 7, 7, 8, 8, 9}, 7)}");
             //Console.WriteLine($" Last Occurance of number is at index : {BinarySearch.LastOccurenceOfTarget(new int[] { 1, 2, 3, 7, 7, 7, 8, 8, 9 }, 7)}");
             //Console.WriteLine($" Array is rotated {BinarySearch.NumberOfTimesArrayIsRotated(new int[] { 8, 11, 12, 15, 18, 2, 5, 6 })} times");
-            Console.WriteLine($" The searched element in rotated array is at index: {BinarySearch.FindTargetInRotatedArray(new int[] { 8, 11, 12, 15, 18, 2, 5, 6 }, 2)}");
+            //Console.WriteLine($" The searched element in rotated array is at index: {BinarySearch.FindTargetInRotatedArray(new int[] { 8, 11, 12, 15, 18, 2, 5, 6 }, 2)}");
+            //Console.WriteLine($" The searched element in nearly sorted array is at index: {BinarySearch.BinarySearchInNearlySortedArray(new int[] { 5, 10, 30, 20, 40 }, 40)}");
+            Console.WriteLine($" The floor of target element is : {BinarySearch.FindFloorOfAnElement(new int[] { 1, 2, 3, 4, 8, 10, 10, 12, 19 }, 9)}");
 
             #endregion
 

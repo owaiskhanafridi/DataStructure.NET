@@ -346,5 +346,86 @@ namespace LeetCodePractice_2025
             return -1;
         }
 
+        /// <summary>
+        /// Find an element using binary search in nearly sorted array.
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public static int BinarySearchInNearlySortedArray(int[] nums, int target)
+        {
+            if (nums.Length == 0)
+                return -1;
+
+            int start = 0;
+            int n = nums.Length;
+            int end = n-1;
+            int mid;
+
+            while (start <= end)
+            {
+                mid = start + (end - start) / 2;
+
+                if (nums[mid] == target)
+                    return end;
+
+                //Check for one element before mid if mid is not the first element of array (Avoid out of bound error)
+                else if (mid - 1 >= 0 && nums[mid - 1] == target)
+                    return mid - 1;
+
+                //Check for one element after the mid if mid is not the last element of array (Avoid out of bound error)
+                else if (mid <= n - 1 && nums[mid + 1] == target)
+                    return mid + 1;
+
+                //Check whether to find on the right side or left side of the array.
+                //since we already checked one step forward and backward, we will check 2 step forward and backwards from the mid.
+                if (nums[mid] > target)
+                    end = mid - 2;
+                else
+                    start = mid + 2;
+            }
+
+            return -1;
+        }
+
+        /// <summary>
+        /// Find the floor of the target element
+        /// Example: Find 5. Floor of 5 is 5 or a highest number smaller than 5 in the array
+        /// which is 4 in [1,2,3,8 . . .] array
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public static int FindFloorOfAnElement(int[] nums, int target)
+        {
+            if (nums.Length == 0)
+                return -1;
+
+            int start = 0;
+            int end = nums.Length;
+            int mid;
+            int result = -1;
+
+            while (start <= end)
+            {
+                mid = start + (end - start) / 2;
+
+                if (nums[mid] == target)
+                    return nums[mid];
+
+                else if (nums[mid] < target)
+                {
+                    result = nums[mid];
+                    start = mid + 1;
+                }
+                else
+                {
+                    end = mid - 1;
+                }
+            }
+
+            return result;
+        }
+
     }
 }
