@@ -117,7 +117,8 @@ namespace MyApp
             //Console.WriteLine($" ORDER NOT GIVEN: The searched element is at index: {BinarySearch.OrderIsNotGiven(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 6)}");
             //Console.WriteLine($" First Occurance of number is at index : {BinarySearch.FirstOccurenceOfTarget(new int[] { 1, 2, 3, 7, 7, 7, 8, 8, 9}, 7)}");
             //Console.WriteLine($" Last Occurance of number is at index : {BinarySearch.LastOccurenceOfTarget(new int[] { 1, 2, 3, 7, 7, 7, 8, 8, 9 }, 7)}");
-            Console.WriteLine($" Array is rotated {BinarySearch.NumberOfTimesArrayIsRotated(new int[] { 8, 11, 12, 15, 18, 2, 5, 6 })} times");
+            //Console.WriteLine($" Array is rotated {BinarySearch.NumberOfTimesArrayIsRotated(new int[] { 8, 11, 12, 15, 18, 2, 5, 6 })} times");
+            Console.WriteLine($" The searched element in rotated array is at index: {BinarySearch.FindTargetInRotatedArray(new int[] { 8, 11, 12, 15, 18, 2, 5, 6 }, 2)}");
 
             #endregion
 

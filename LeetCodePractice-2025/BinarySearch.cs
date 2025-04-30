@@ -55,6 +55,39 @@ namespace LeetCodePractice_2025
             return -1;
         }
 
+        /// <summary>
+        /// Simple Binary Search method with specified start and end index
+        /// This method can be used for other complex questions.
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="target"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        public static int BinarySearchWithSpecifiedPoints(int[] nums, int target, int start, int end)
+        {
+            if (nums.Length == 0)
+                return -1;
+
+            int mid;
+
+            while (start <= end)
+            {
+                mid = start + (end - start) / 2;
+
+                if (nums[mid] == target)
+                    return mid;
+
+                else if (nums[mid] > target)
+                    end = mid - 1;
+
+                else
+                    start = mid + 1;
+            }
+
+            return -1;
+        }
+
         public static int SortedReverse(int[] nums, int target)
         {
             int start = 0;
@@ -274,6 +307,43 @@ namespace LeetCodePractice_2025
                     end = mid - 1;
             }
             return 0;
+        }
+
+        /// <summary>
+        /// Find the index of element in rotated array.
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public static int FindTargetInRotatedArray(int[] nums, int target)
+        {
+            //First we calculate the number of times an array is rotated to get the 
+            //middle element index so we can divide the array into two sub arrays
+            //for searching the target element in both
+            int arrayRotated = NumberOfTimesArrayIsRotated(nums);
+
+            if (arrayRotated != 0)
+            {
+                int n = nums.Length;
+                
+                //rotationCount = n - smallestElementIndex. So smallestElementIndex= n - rotationCount.
+                //smallestElementIndex is basically the middle element through which we can divide the array
+                //into two subarrays because both the left and right subarrays of this element are sorted.
+                int smallestElementIndex = n - arrayRotated;
+
+
+                //find the target in both left and right array using regular binary search with specified start and end index
+                int leftArray = BinarySearchWithSpecifiedPoints(nums, target, 0, smallestElementIndex - 1);
+                int rightArray = BinarySearchWithSpecifiedPoints(nums, target, smallestElementIndex, n - 1);
+
+                return leftArray == -1 ? rightArray == -1 ? -1 : rightArray : leftArray;
+            }
+            else
+            {
+                return -1;
+            }
+
+            return -1;
         }
 
     }
