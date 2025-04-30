@@ -266,11 +266,11 @@ namespace LeetCodePractice_2025
                 //previous= [mid-1+n%n] because the mid could be nums[0] => nums[-1] (out of bound error)
                 //next= [mid+1%n] because the mid could be nums[nums.Length - 1] => nums[nums.Length +1] (out of bound error)
 
-                if (nums[mid] < nums[mid - 1 + n % n] && nums[mid] < nums[mid + 1 % n])
+                if (nums[mid] <= nums[mid - 1 + n % n] && nums[mid] <= nums[mid + 1 % n])
                     return n - mid;
-                else if (nums[0] < nums[mid])
+                else if (nums[0] <= nums[mid])
                     start = mid + 1;
-                else if (nums[mid] < nums[n - 1])
+                else if (nums[mid] <= nums[n - 1])
                     end = mid - 1;
             }
             return 0;
