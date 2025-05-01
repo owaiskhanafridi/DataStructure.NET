@@ -93,13 +93,17 @@ namespace LeetCodePractice_2025
                 new int[] {-2, 1}
             };
 
-            var visited = new Dictionary<int[], bool>();
+            //Using ValueTuple as it's a value type and compares content instead of the object in case of reference type int[]
+            var visited = new HashSet<(int, int)>();
+            
+            //Its okay to use int[] in Queue since we're not checking it for comparison like in case of visited variable above.
             var points = new Queue<int[]>();
+            
             int steps = 0;
             int pointSize = 0;
 
             points.Enqueue(knightPosition);
-            visited.Add(knightPosition, true);
+            visited.Add((knightPosition[0], knightPosition[1]));
 
             while (points.Count() > 0)
             {
@@ -120,10 +124,10 @@ namespace LeetCodePractice_2025
                         if (newPointX >= 0 && newPointY >= 0 &&
                             newPointX < dimension &&
                             newPointY < dimension &&
-                            !visited.ContainsKey([newPointX, newPointY]))
+                            !visited.Contains((newPointX, newPointY)))
                         {
-                            visited.Add(new int[] { newPointX, newPointY }, true);
                             points.Enqueue(new int[] { newPointX, newPointY });
+                            visited.Add((newPointX, newPointY));
                         }
                     }
                     pointSize--;
@@ -137,12 +141,12 @@ namespace LeetCodePractice_2025
         {
             var visited = new HashSet<int>();
             var adjacencyList = CreateAdjacencyList(edgeList);
-            
+
             visited = Action(source, adjacencyList, visited);
             Console.WriteLine($"Path between {source} --> {destination} Exists: {visited.Contains(destination)}");
         }
 
-        public static HashSet<int> BFS(int source, Dictionary<int,List<int>> adjacencyList, HashSet<int> visited)
+        public static HashSet<int> BFS(int source, Dictionary<int, List<int>> adjacencyList, HashSet<int> visited)
         {
             //var visited = new HashSet<int>();
             var nodes = new Queue<int>();
@@ -184,8 +188,5 @@ namespace LeetCodePractice_2025
 
             return adjacencyList;
         }
-
-
-
     }
 }
