@@ -18,12 +18,16 @@ namespace MyApp
             //Console.WriteLine(SlidingWindow.MaxSumOfWindowSize_Practice(3, new int[] { 2, 6, 5, 1, 4, 3, 10, 7 }));
             //Console.WriteLine(SlidingWindow.MinSumOfWindowSize_Practice(3, new int[] { 2, 6, 5, 1, 4, 3, 10, 7 }));
             //Console.WriteLine(SlidingWindow.FirstNegativeNumbersInWindowSize_Practice(3, new int[] { 12, -1, -7, 8, -15, 30, 16, 28 }));
-            //Console.WriteLine(SlidingWindow.OccurrenceOfAnagram_Practice("aabaabaa", "aaba"));
+            //Console.WriteLine($"Occurance of anagram: {SlidingWindow.OccurrenceOfAnagram_Practice("aabacabaa", "aaba")}");
             //Console.WriteLine(SlidingWindow.LongestSubstringWithKUniqueCharacters_Practice("aabacbebebe", 3));
             //Console.WriteLine(SlidingWindow.LargestSubArrayOfSum_Practice(new int[] { 4, 1, 1, 1, 2, 3, 5 }, 5));
             //SlidingWindow.MaxOfAllSubArray_Practice(new int[] { 1, 3, -1, -3, 5, 3, 6, 7 }, 3);
             //Console.WriteLine(SlidingWindow.PickToysOfNTypeWithSequence_Practice("abaccab", 2));
-            Console.WriteLine(SlidingWindow.RemoveDuplicatesFromSorterArray(new int[] { 0, 0, 1, 1, 2, 2, 3, 3, 4 }));
+            //Console.WriteLine(SlidingWindow.RemoveDuplicatesFromSorterArray(new int[] { 0, 0, 1, 1, 2, 2, 3, 3, 4 }));
+
+
+            Console.WriteLine($"Occurance of anagram: {SlidingWindow.OccuranceOfAnagram_FinalPractice("aabaabaa", "aaba")}");
+            
 
             #endregion Sliding_Window_Callings
 
@@ -88,26 +92,26 @@ namespace MyApp
 
             #region Heap - Callings
 
-            //Heap.FindKSmallestElement(new int[] { 7, 10, 4, 3, 20, 15 }, 3);
-            //Heap.FindKHighestSalary(new int[] { 2000, 5000, 1000, 6000, 7000, 3000 }, 3);
-            //Heap.SortKSortedArray(new int[] { 6, 5, 3, 2, 8, 10, 9 }, 3);
-            //Heap.FindKLargestElements(new int[] { 7, 10, 4, 3, 20, 15 }, 3);
-            //Heap.FindKLargestElements(new int[] { 7, 10, 4, 3, 20, 15, 21, 1, 2 }, 2);
-            //Heap.FindKClosestElements(new int[] { 5, 6, 7, 8, 9 }, 3, 7);
-            //Heap.FindKClosestElements(new int[] { 9, 6, 7, 8, 5 }, 3, 7);
-            //Heap.FindTopKFrequentNumbers(new int[] { 1, 1, 1, 6, 6, 3, 2, 2, 4, 6, 6 }, 2);
-            //Heap.FrequencySort(new int[] { 1, 1, 1, 3, 2, 2, 4 });
-            //Heap.FindKClosestPointsFromOrigin(new int[][] {
-            //    new int[] {1,3 },
-            //    new int[]  {-2,2 },
-            //    new int[] {5,8 },
-            //    new int[] {0,1 }
-            //    }
-            //    , 2);
+            Heap.FindKSmallestElement(new int[] { 7, 10, 4, 3, 20, 15 }, 3);
+            Heap.FindKHighestSalary(new int[] { 2000, 5000, 1000, 6000, 7000, 3000 }, 3);
+            Heap.SortKSortedArray(new int[] { 6, 5, 3, 2, 8, 10, 9 }, 3);
+            Heap.FindKLargestElements(new int[] { 7, 10, 4, 3, 20, 15 }, 3);
+            Heap.FindKLargestElements(new int[] { 7, 10, 4, 3, 20, 15, 21, 1, 2 }, 2);
+            Heap.FindKClosestElements(new int[] { 5, 6, 7, 8, 9 }, 3, 7);
+            Heap.FindKClosestElements(new int[] { 9, 6, 7, 8, 5 }, 3, 7);
+            Heap.FindTopKFrequentNumbers(new int[] { 1, 1, 1, 6, 6, 3, 2, 2, 4, 6, 6 }, 2);
+            Heap.FrequencySort(new int[] { 1, 1, 1, 3, 2, 2, 4 });
+            Heap.FindKClosestPointsFromOrigin(new int[][] {
+                new int[] {1,3 },
+                new int[]  {-2,2 },
+                new int[] {5,8 },
+                new int[] {0,1 }
+                }
+                , 2);
 
-            //Heap.ConnectRopesToMinimizeCost(new int[] { 1, 2, 3, 4, 5 });
+            Heap.ConnectRopesToMinimizeCost(new int[] { 1, 2, 3, 4, 5 });
 
-            //Heap.FindSumBetweenK1AndK2SmallestNumbers(new int[] { 1, 3, 12, 5, 15, 11 },3,6);
+            Heap.FindSumBetweenK1AndK2SmallestNumbers(new int[] { 1, 3, 12, 5, 15, 11 }, 3, 6);
             #endregion
 
             #region BinarySearch - Callings
