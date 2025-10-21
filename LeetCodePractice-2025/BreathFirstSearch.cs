@@ -95,10 +95,10 @@ namespace LeetCodePractice_2025
 
             //Using ValueTuple as it's a value type and compares content instead of the object in case of reference type int[]
             var visited = new HashSet<(int, int)>();
-            
+
             //Its okay to use int[] in Queue since we're not checking it for comparison like in case of visited variable above.
             var points = new Queue<int[]>();
-            
+
             int steps = 0;
             int pointSize = 0;
 
@@ -188,5 +188,170 @@ namespace LeetCodePractice_2025
 
             return adjacencyList;
         }
+
+
+        #region Final Preparation
+
+
+        /// <summary>
+        /// Create adjacency list with actual int[][] typed parameters
+        /// </summary>
+        /// <param name="n"></param>
+        /// <param name="edges"></param>
+        /// <param name="source"></param>
+        /// <param name="destination"></param>
+        /// <returns></returns>
+        public static Dictionary<int, List<int>> CreateAdjacencyList_Practice(int[][] edges)
+        {
+            var adjacencyList = new Dictionary<int, List<int>>();
+            for (int i = 0; i < edges.GetLength(0); i++)
+            {
+                int a = edges[i][0];
+                int b = edges[i][1];
+
+                if (!adjacencyList.ContainsKey(a))
+                    adjacencyList.Add(a, new List<int>());
+
+                if (!adjacencyList.ContainsKey(b))
+                    adjacencyList.Add(b, new List<int>());
+
+                adjacencyList[a].Add(b);
+                adjacencyList[b].Add(a);
+            }
+            return adjacencyList;
+        }
+
+
+        public static int NumIslands_chars(char[][] grid)
+        {
+
+            Dictionary<string, bool> dict = new Dictionary<string, bool>();
+            int count = 0;
+
+            for (int i = 0; i < grid.Length; i++)
+                for (int j = 0; j < grid[i].Length; j++)
+                {
+                    if (grid[i][j] == '0')
+                        continue;
+                    else if (!dict.ContainsKey(i + "," + j))
+                        BFS_chars(grid, i, j, dict, ref count);
+                }
+            return count;
+        }
+
+        public static void BFS_chars(char[][] grid, int startingX, int startingY, Dictionary<string, bool> dict, ref int count)
+        {
+            Points point = new Points(startingX, startingY);
+            Queue<Points> que = new Queue<Points>();
+            que.Enqueue(point);
+            dict.Add(startingX + "," + startingY, true);
+
+            int gridX_length = grid.Length;
+            int gridY_length = grid[0].Length;
+            var direction = new int[][] {
+                new int[] { -1, 0 },
+                new int[] { 1, 0 },
+                new int[] { 0, 1 },
+                new int[] { 0, -1 }
+            };
+
+            while (que.Count != 0)
+            {
+                Points currentPoint = que.Dequeue();
+                int x = currentPoint.x;
+                int y = currentPoint.y;
+
+                for (int i = 0; i < direction.GetLength(0); i++)
+                {
+                    int newX = x + direction[i][0];
+                    int newY = y + direction[i][1];
+
+                    if (newX >= 0
+                    && newY >= 0
+                    && newX < gridX_length
+                    && newY < gridY_length
+                    && !dict.ContainsKey(newX + "," + newY)
+                    && grid[newX][newY] == '1')
+                    {
+                        que.Enqueue(new Points(newX, newY));
+                        dict.Add(newX + "," + newY, true);
+                    }
+                }
+
+            }
+            count++;
+        }
+
+        public static int NumberOfIslands_Chars(char[][] grid)
+        {
+            int count = 0;
+            var visited = new HashSet<string>();
+
+            for (int i = 0; i < grid.Length; i++)
+                for (int j = 0; j < grid[i].Length; j++)
+                {
+                    if (!visited.Contains($"{i},{j}") && grid[i][j] == '1')
+                        BFS_Chars(i, j, visited, grid, ref count);
+
+
+        }
+
+            return count;
+        }
+
+        public static void BFS_Chars(int pointX, int pointY, HashSet<string> visited, char[][] grid, ref int count)
+        {
+            visited.Add($"{pointX},{pointY}");
+            var queue = new Queue<Points>();
+            queue.Enqueue(new Points(pointX, pointY));
+
+            int lengthX = grid.Length;
+            int lengthY = grid[0].Length;
+
+            var coordinates = new int[][] {
+            new int[2] {1, 0},
+            new int[2] {0, 1},
+            new int[2] {-1, 0},
+            new int[2] {0, -1},
+            };
+
+            while (queue.Count != 0)
+            {
+                Points points = queue.Dequeue();
+
+                for (int i = 0; i < coordinates.Length; i++)
+                {
+                    int newX = points.x + coordinates[i][0];
+                    int newY = points.y + coordinates[i][1];
+
+                    if (newX >= 0 && newY >= 0 &&
+                        newX < lengthX && newY < lengthY &&
+                        !visited.Contains($"{newX},{newY}")
+                        && grid[newX][newY] == '1')
+                    {
+                        visited.Add($"{newX},{newY}");
+                        queue.Enqueue(new Points(newX, newY));
+                    }
+                }
+            }
+            count++;
+        }
+
+
+
+        public class Points
+        {
+            public int x;
+            public int y;
+
+            public Points(int x, int y)
+            {
+                this.x = x;
+                this.y = y;
+            }
+        }
+        #endregion
     }
 }
+
+

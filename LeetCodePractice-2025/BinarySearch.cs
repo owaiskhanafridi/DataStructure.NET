@@ -370,11 +370,11 @@ namespace LeetCodePractice_2025
                     return end;
 
                 //Check for one element before mid if mid is not the first element of array (Avoid out of bound error)
-                else if (mid - 1 >= 0 && nums[mid - 1] == target)
+                else if (nums[mid - 1] >= 0 && nums[mid - 1] == target)
                     return mid - 1;
 
                 //Check for one element after the mid if mid is not the last element of array (Avoid out of bound error)
-                else if (mid <= n - 1 && nums[mid + 1] == target)
+                else if (nums[mid] <= n - 1 && nums[mid + 1] == target)
                     return mid + 1;
 
                 //Check whether to find on the right side or left side of the array.

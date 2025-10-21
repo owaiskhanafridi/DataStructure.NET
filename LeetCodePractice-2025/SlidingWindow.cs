@@ -132,6 +132,8 @@ namespace LeetCodePractice_2025
             {
                 if (dict.ContainsKey(value[end]))
                     dict[value[end]]--;
+                else
+                    dict.Add(value[end], 1);
 
                 if (dict[value[end]] == 0)
                     dictCount--;
@@ -343,5 +345,49 @@ namespace LeetCodePractice_2025
 
             return i;
         }
+
+        ///NEW PRACTICE
+
+        //"aabaabaa", "aaba"
+
+        public static int OccuranceOfAnagram_FinalPractice(string values, string pattern)
+        {
+            int start = 0;
+            var visited = new Dictionary<char, int>();
+            int visitedCount = 0;
+            int occurence = 0;
+
+            //Building the dictionary
+            foreach (var ch in pattern)
+            {
+                if (!visited.ContainsKey(ch))
+                    visited.Add(ch, 0);
+                visited[ch]++;
+            }
+
+            visitedCount = visited.Count;
+
+            for (int end = 0; end < values.Length; end++)
+            {
+                if (visited.ContainsKey(values[end]) && visited[values[end]] > 0)
+                    visited[values[end]]--;
+           
+                if (visited[values[end]] == 0)
+                    visitedCount--;
+
+                if (end - start + 1 == pattern.Length)
+                {
+                    if (visitedCount == 0)
+                        occurence++;
+
+                    visited[values[start]]++;
+                    start++;
+                    visitedCount++;
+                }
+            }
+            return occurence;
+        }
+
+
     }
 }

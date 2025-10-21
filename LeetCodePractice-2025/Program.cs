@@ -13,6 +13,17 @@ namespace MyApp
         {
             Console.WriteLine("Starting application...");
 
+            Console.WriteLine(PracticeJune8.Encoder("ABCD"));
+
+            PracticeJune8.Frequency("abcd");
+
+
+            #region Stack - Callings
+
+            Stack.NextClosestLargeElementAtRight(new int[] { 1, 3, 2, 4 });
+
+            #endregion
+
             #region Sliding_Window_Callings
 
             //Console.WriteLine(SlidingWindow.MaxSumOfWindowSize_Practice(3, new int[] { 2, 6, 5, 1, 4, 3, 10, 7 }));
@@ -27,18 +38,18 @@ namespace MyApp
 
 
             Console.WriteLine($"Occurance of anagram: {SlidingWindow.OccuranceOfAnagram_FinalPractice("aabaabaa", "aaba")}");
-            
+
 
             #endregion Sliding_Window_Callings
 
             #region DataStructure
 
-            //DataStructures.List();
-            //DataStructures.LinkedList();
-            //DataStructures.Queue();
-            //DataStructures.HashSet();
-            //DataStructures.BitArray();
-            //DataStructures.PriorityQueueAndHeap();
+            DataStructures.List();
+            DataStructures.LinkedList();
+            DataStructures.Queue();
+            DataStructures.HashSet();
+            DataStructures.BitArray();
+            DataStructures.PriorityQueueAndHeap();
             DataStructures.MultiDimenstionArrays();
 
 
@@ -73,6 +84,47 @@ namespace MyApp
             //        new int[] { 2,5 },
             //        new int[] { 3,6 },
             //    }, 1, 3);
+
+
+            BreathFirstSearch.CreateAdjacencyList_Practice(
+                new int[][] {
+                    new int[] { 0, 1},
+                    new int[] { 1,2},
+                    new int[] { 2, 0},
+                }
+);
+
+            //BreathFirstSearch.CreateAdjacencyList_Practice(
+            //    new int[][] {
+            //        new int[] { 1,0},
+            //        new int[] { 1,2},
+            //        new int[] { 3,5},
+            //        new int[] { 3,4} }
+            //);
+
+            //Console.WriteLine(BreathFirstSearch.NumIslands_chars(new char[][] {
+            //                                                    new char[] {'1','1','1','1','0'},
+            //                                                    new char[] {'1','1','0','1','0'},
+            //                                                    new char[] {'1','1','0','0','0'},
+            //                                                    new char[] {'0','0','0','0','0'}}));
+
+            //Console.WriteLine(BreathFirstSearch.NumIslands_chars(new char[][] {
+            //                                                    new char[]  {'1','1','0','0','0'},
+            //                                                    new char[]  {'1','1','0','0','0'},
+            //                                                    new char[]  {'0','0','1','0','0'},
+            //                                                    new char[]  {'0','0','0','1','1'}}));
+
+            Console.WriteLine(BreathFirstSearch.NumberOfIslands_Chars(new char[][] {
+                                                                new char[] {'1','1','1','1','0'},
+                                                                new char[] {'1','1','0','1','0'},
+                                                                new char[] {'1','1','0','0','0'},
+                                                                new char[] {'0','0','0','0','0'}}));
+
+            Console.WriteLine(BreathFirstSearch.NumberOfIslands_Chars(new char[][] {
+                                                                new char[]  {'1','1','0','0','0'},
+                                                                new char[]  {'1','1','0','0','0'},
+                                                                new char[]  {'0','0','1','0','0'},
+                                                                new char[]  {'0','0','0','1','1'}}));
             #endregion
 
             #region Amazon Top Questions - Callings

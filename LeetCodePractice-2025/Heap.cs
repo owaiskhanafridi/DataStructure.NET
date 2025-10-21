@@ -303,7 +303,7 @@ namespace LeetCodePractice_2025
 
             return result;
         }
-        
+
         /// <summary>
         /// Find the total cost of the rope of given length in such a way that it returns minimum cost when adding each other.
         /// Each rope cost something. rope of legth 2 cost $2.
@@ -332,7 +332,7 @@ namespace LeetCodePractice_2025
                 int first = minHeap.Dequeue();
                 int second = minHeap.Dequeue();
                 totalCost += first + second;
-                minHeap.Enqueue(first + second, first+second);
+                minHeap.Enqueue(first + second, first + second);
             }
 
             return totalCost;
@@ -346,7 +346,7 @@ namespace LeetCodePractice_2025
         /// <param name="k2"></param>
         /// <returns></returns>
         public static int FindSumBetweenK1AndK2SmallestNumbers(int[] nums, int k1, int k2)
-        { 
+        {
             int k1SmallestNumber = FindKSmallestElement(nums, k1);
             int k2SmallestNumber = FindKSmallestElement(nums, k2);
             int totalSum = 0;

@@ -10,6 +10,25 @@ namespace LeetCodePractice_2025
 {
     class DataStructures
     {
+        enum Day
+        {
+            Sunday,
+            Monday,
+            Tuesday,
+            Wednesday,
+            Thursday,
+            Friday,
+            Saturday
+        }
+
+        enum Size
+        {
+            Small = 0,
+            Medium = 1,
+            Large = 2,
+    
+
+        }
 
         public static void List()
         {
@@ -308,13 +327,13 @@ namespace LeetCodePractice_2025
 
 
             //PriorityQueue are used for heap in C#
-            PriorityQueue<int,int> minHeap = new PriorityQueue<int,int>();
+            PriorityQueue<int, int> minHeap = new PriorityQueue<int, int>();
             PriorityQueue<int, int> maxHeap = new PriorityQueue<int, int>();
 
 
-            var array = new int[] { 7, 10, 4, 3, 20, 15};
+            var array = new int[] { 7, 10, 4, 3, 20, 15 };
 
-            for(int counter=0; counter < array.Length; counter++)
+            for (int counter = 0; counter < array.Length; counter++)
             {
                 minHeap.Enqueue(array[counter], array[counter]);
             }
@@ -328,10 +347,10 @@ namespace LeetCodePractice_2025
 
         }
 
-        public static void MultiDimenstionArrays() 
+        public static void MultiDimenstionArrays()
         {
             //Option 1: int[][]
-            
+
             //rows must be defined
             int[][] arr1 = new int[2][];
 
@@ -345,15 +364,22 @@ namespace LeetCodePractice_2025
             //Option 2: int[,]
 
             //Both row and columns must be defined
-            int[,] arr2 = new int[4,2];
+            int[,] arr2 = new int[4, 2];
 
-            arr2[0,0] = 1;
-            arr2[0,1] = 2;
+            arr2[0, 0] = 1;
+            arr2[0, 1] = 2;
 
             //Will crash because max row length is 4 (max row: 3).
             //arr2[4, 0] = 3;
             //arr2[4, 1] = 7;
 
         }
+
+        public static void Enums()
+        {
+
+        }
+
+
     }
 }
