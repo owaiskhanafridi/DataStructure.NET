@@ -51,7 +51,8 @@ namespace LeetCodePractice_2025
 
             list.ForEach(x => Console.WriteLine($"Printing Item: {x.ToString()}"));
 
-            //Both of these operations have 
+            //Both of these operations have O(n) complexity as it first perform a linear search,
+            //and then shifts the element one side forward or backward
             list.RemoveAt(0);
             list.Remove(10);
 
@@ -67,6 +68,10 @@ namespace LeetCodePractice_2025
 
             //Crashes when empty sequence or condition not meeting the criteria
             var checkFirst = list2.First(x => x == 0);
+
+
+
+
         }
 
         public static void LinkedList()
