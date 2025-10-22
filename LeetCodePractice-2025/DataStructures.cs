@@ -68,10 +68,6 @@ namespace LeetCodePractice_2025
 
             //Crashes when empty sequence or condition not meeting the criteria
             var checkFirst = list2.First(x => x == 0);
-
-
-
-
         }
 
         public static void LinkedList()
@@ -281,13 +277,13 @@ namespace LeetCodePractice_2025
             var b = new BitArray(new bool[] { false, true, true });
 
             //And operation
-            var resultAnd = a.And(b); // [false, false, true]
+            var resultAnd = new BitArray(a).And(b); // [false, false, true]
 
             //OR operation
-            var resultOr = a.Or(b); // [false, true, true]
+            var resultOr = new BitArray(a).Or(b); // [true, true, true]
 
             //XOR operation
-            var resultXor = a.Or(b);
+            var resultXor = new BitArray(a).Xor(b);
 
             //Set all true/false
             a.SetAll(true);
