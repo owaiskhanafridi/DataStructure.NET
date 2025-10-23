@@ -1,4 +1,5 @@
 ﻿using LeetCodePractice_2025;
+using LeetCodePractice_2025.LeetCode_Practice.SlidingWindow;
 using System;
 using System.ComponentModel.Design;
 using System.Dynamic;
@@ -13,9 +14,27 @@ namespace MyApp
         {
             Console.WriteLine("Starting application...");
 
-            Console.WriteLine(PracticeJune8.Encoder("ABCD"));
 
-            PracticeJune8.Frequency("abcd");
+            #region Practice Oct 23, 2025 Onwards
+
+            #region SlidingWindow
+            
+            //Console.Write("Max Sum of Window Size Result: " + 
+            //    SlidingWindow_Practice.MaxSumOfWindowSize(3, new int[] { 2, 6, 5, 1, 4, 3, 10, 7 }).ToString()
+            //    );
+
+            //Console.WriteLine("\nMin Sum of Window Size Result: " +
+            //    SlidingWindow_Practice.MinSumOfWindowSize(3, new int[] { 2, 6, 5, 1, 4, 3, 10, 7 }).ToString()
+            //    );
+
+            var indices = SlidingWindow_Practice.TwoSum(new int[] { 1, 3, 3, 4 }, 5);
+            Console.WriteLine($"\nTwo Sum Indices: {indices[0]} , {indices[1]}");
+            #endregion
+
+
+            #endregion
+
+            //Sliding Window
 
 
             #region Stack - Callings
@@ -37,20 +56,20 @@ namespace MyApp
             //Console.WriteLine(SlidingWindow.RemoveDuplicatesFromSorterArray(new int[] { 0, 0, 1, 1, 2, 2, 3, 3, 4 }));
 
 
-            Console.WriteLine($"Occurance of anagram: {SlidingWindow.OccuranceOfAnagram_FinalPractice("aabaabaa", "aaba")}");
+            //Console.WriteLine($"Occurance of anagram: {SlidingWindow.OccuranceOfAnagram_FinalPractice("aabaabaa", "aaba")}");
 
 
             #endregion Sliding_Window_Callings
 
             #region DataStructure
 
-            DataStructures.List();
-            DataStructures.LinkedList();
-            DataStructures.Queue();
-            DataStructures.HashSet();
-            DataStructures.BitArray();
-            DataStructures.PriorityQueueAndHeap();
-            DataStructures.MultiDimenstionArrays();
+            //DataStructures.List();
+            //DataStructures.LinkedList();
+            //DataStructures.Queue();
+            //DataStructures.HashSet();
+            //DataStructures.BitArray();
+            //DataStructures.PriorityQueueAndHeap();
+            //DataStructures.MultiDimenstionArrays();
 
 
             #endregion
@@ -114,56 +133,56 @@ namespace MyApp
             //                                                    new char[]  {'0','0','1','0','0'},
             //                                                    new char[]  {'0','0','0','1','1'}}));
 
-            Console.WriteLine(BreathFirstSearch.NumberOfIslands_Chars(new char[][] {
-                                                                new char[] {'1','1','1','1','0'},
-                                                                new char[] {'1','1','0','1','0'},
-                                                                new char[] {'1','1','0','0','0'},
-                                                                new char[] {'0','0','0','0','0'}}));
+            //Console.WriteLine(BreathFirstSearch.NumberOfIslands_Chars(new char[][] {
+            //                                                    new char[] {'1','1','1','1','0'},
+            //                                                    new char[] {'1','1','0','1','0'},
+            //                                                    new char[] {'1','1','0','0','0'},
+            //                                                    new char[] {'0','0','0','0','0'}}));
 
-            Console.WriteLine(BreathFirstSearch.NumberOfIslands_Chars(new char[][] {
-                                                                new char[]  {'1','1','0','0','0'},
-                                                                new char[]  {'1','1','0','0','0'},
-                                                                new char[]  {'0','0','1','0','0'},
-                                                                new char[]  {'0','0','0','1','1'}}));
+            //Console.WriteLine(BreathFirstSearch.NumberOfIslands_Chars(new char[][] {
+            //                                                    new char[]  {'1','1','0','0','0'},
+            //                                                    new char[]  {'1','1','0','0','0'},
+            //                                                    new char[]  {'0','0','1','0','0'},
+            //                                                    new char[]  {'0','0','0','1','1'}}));
             #endregion
 
             #region Amazon Top Questions - Callings
 
-            var indices = AmazonTopQuestions.TwoSum(new int[] { 1, 3, 3, 4 }, 5);
-            Console.WriteLine($"Target: 5, indices: {indices[0]} ,{indices[1]}");
+            //var indices = AmazonTopQuestions.TwoSum(new int[] { 1, 3, 3, 4 }, 5);
+            //Console.WriteLine($"Target: 5, indices: {indices[0]} ,{indices[1]}");
 
-            indices = AmazonTopQuestions.TwoSum(new int[] { 1, 3, 3, 4 }, 6);
-            Console.WriteLine($"Target: 5, indices: {indices[0]} ,{indices[1]}");
+            //indices = AmazonTopQuestions.TwoSum(new int[] { 1, 3, 3, 4 }, 6);
+            //Console.WriteLine($"Target: 5, indices: {indices[0]} ,{indices[1]}");
 
-            Console.WriteLine($"Minimum Operations Required to make all element Zero is: " +
-                $"{AmazonTopQuestions.MinimumOperations(new int[] { 1, 5, 0, 3, 5 })}");
+            //Console.WriteLine($"Minimum Operations Required to make all element Zero is: " +
+            //    $"{AmazonTopQuestions.MinimumOperations(new int[] { 1, 5, 0, 3, 5 })}");
 
 
-            AmazonTopQuestions.ThreeSum(new int[] { -1, -1, -1, 0, 1, 1, 1, 2 }, 0);
+            //AmazonTopQuestions.ThreeSum(new int[] { -1, -1, -1, 0, 1, 1, 1, 2 }, 0);
             #endregion
 
             #region Heap - Callings
 
-            Heap.FindKSmallestElement(new int[] { 7, 10, 4, 3, 20, 15 }, 3);
-            Heap.FindKHighestSalary(new int[] { 2000, 5000, 1000, 6000, 7000, 3000 }, 3);
-            Heap.SortKSortedArray(new int[] { 6, 5, 3, 2, 8, 10, 9 }, 3);
-            Heap.FindKLargestElements(new int[] { 7, 10, 4, 3, 20, 15 }, 3);
-            Heap.FindKLargestElements(new int[] { 7, 10, 4, 3, 20, 15, 21, 1, 2 }, 2);
-            Heap.FindKClosestElements(new int[] { 5, 6, 7, 8, 9 }, 3, 7);
-            Heap.FindKClosestElements(new int[] { 9, 6, 7, 8, 5 }, 3, 7);
-            Heap.FindTopKFrequentNumbers(new int[] { 1, 1, 1, 6, 6, 3, 2, 2, 4, 6, 6 }, 2);
-            Heap.FrequencySort(new int[] { 1, 1, 1, 3, 2, 2, 4 });
-            Heap.FindKClosestPointsFromOrigin(new int[][] {
-                new int[] {1,3 },
-                new int[]  {-2,2 },
-                new int[] {5,8 },
-                new int[] {0,1 }
-                }
-                , 2);
+            //Heap.FindKSmallestElement(new int[] { 7, 10, 4, 3, 20, 15 }, 3);
+            //Heap.FindKHighestSalary(new int[] { 2000, 5000, 1000, 6000, 7000, 3000 }, 3);
+            //Heap.SortKSortedArray(new int[] { 6, 5, 3, 2, 8, 10, 9 }, 3);
+            //Heap.FindKLargestElements(new int[] { 7, 10, 4, 3, 20, 15 }, 3);
+            //Heap.FindKLargestElements(new int[] { 7, 10, 4, 3, 20, 15, 21, 1, 2 }, 2);
+            //Heap.FindKClosestElements(new int[] { 5, 6, 7, 8, 9 }, 3, 7);
+            //Heap.FindKClosestElements(new int[] { 9, 6, 7, 8, 5 }, 3, 7);
+            //Heap.FindTopKFrequentNumbers(new int[] { 1, 1, 1, 6, 6, 3, 2, 2, 4, 6, 6 }, 2);
+            //Heap.FrequencySort(new int[] { 1, 1, 1, 3, 2, 2, 4 });
+            //Heap.FindKClosestPointsFromOrigin(new int[][] {
+            //    new int[] {1,3 },
+            //    new int[]  {-2,2 },
+            //    new int[] {5,8 },
+            //    new int[] {0,1 }
+            //    }
+            //    , 2);
 
-            Heap.ConnectRopesToMinimizeCost(new int[] { 1, 2, 3, 4, 5 });
+            //Heap.ConnectRopesToMinimizeCost(new int[] { 1, 2, 3, 4, 5 });
 
-            Heap.FindSumBetweenK1AndK2SmallestNumbers(new int[] { 1, 3, 12, 5, 15, 11 }, 3, 6);
+            //Heap.FindSumBetweenK1AndK2SmallestNumbers(new int[] { 1, 3, 12, 5, 15, 11 }, 3, 6);
             #endregion
 
             #region BinarySearch - Callings
@@ -176,7 +195,7 @@ namespace MyApp
             //Console.WriteLine($" Array is rotated {BinarySearch.NumberOfTimesArrayIsRotated(new int[] { 8, 11, 12, 15, 18, 2, 5, 6 })} times");
             //Console.WriteLine($" The searched element in rotated array is at index: {BinarySearch.FindTargetInRotatedArray(new int[] { 8, 11, 12, 15, 18, 2, 5, 6 }, 2)}");
             //Console.WriteLine($" The searched element in nearly sorted array is at index: {BinarySearch.BinarySearchInNearlySortedArray(new int[] { 5, 10, 30, 20, 40 }, 40)}");
-            Console.WriteLine($" The floor of target element is : {BinarySearch.FindFloorOfAnElement(new int[] { 1, 2, 3, 4, 8, 10, 10, 12, 19 }, 9)}");
+            //Console.WriteLine($" The floor of target element is : {BinarySearch.FindFloorOfAnElement(new int[] { 1, 2, 3, 4, 8, 10, 10, 12, 19 }, 9)}");
 
             #endregion
 

@@ -9,6 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="LeetCode Practice\Arrays\" />
+    <Folder Include="LeetCode Practice\BFS\" />
+    <Folder Include="LeetCode Practice\DFS\" />
+    <Folder Include="LeetCode Practice\Heap\" />
+    <Folder Include="LeetCode Practice\LinkedList\" />
+    <Folder Include="LeetCode Practice\Queue\" />
+    <Folder Include="LeetCode Practice\Stack\" />
+    <Folder Include="LeetCode Practice\Strings\" />
     <Folder Include="Logical And Maintenable\Parking Garage\" />
   </ItemGroup>
 

@@ -10,6 +10,7 @@ namespace LeetCodePractice_2025
 {
     class DataStructures
     {
+        //Enums cannot be declared inside a function. 
         enum Day
         {
             Sunday,
@@ -343,9 +344,6 @@ namespace LeetCodePractice_2025
             {
                 maxHeap.Enqueue(array[counter], -array[counter]);
             }
-
-
-
         }
 
         public static void MultiDimenstionArrays()
