@@ -53,7 +53,7 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
         //Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
         //You may assume that each input would have exactly one solution, and you may not use the same element twice.
         //You can return the answer in any order.
-        public static int[] TwoSum(int[] numbers, int target)
+        public static int[] TwoSum_BruteForce(int[] numbers, int target)
         {
             if (numbers.Length < 2)
                 return null;
@@ -82,6 +82,29 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
             }
 
             return null;
+        }
+
+        public static int[] TwoSum(int[] numbers, int target)
+        {
+            if (numbers.Length < 2) return null;
+
+            var elements = new Dictionary<int, int>();
+            var indices = new int[2];
+            for (int i = 0; i < numbers.Length; i++)
+                //In case of multiple same numbers, this line will update the value of the existing key
+                elements[numbers[i]] = i;
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                //Additional check to make sure same index is not used twice.
+                //As problem states: "...and you may not use the same element twice";
+                var difference = target - numbers[i];
+
+                if (elements.ContainsKey(difference) && i != elements[difference])
+                    return new int[] { i, elements[difference] };
+            }
+
+            return new int[] { };
         }
 
     }

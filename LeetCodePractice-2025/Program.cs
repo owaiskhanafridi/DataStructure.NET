@@ -27,10 +27,13 @@ namespace MyApp
             //    SlidingWindow_Practice.MinSumOfWindowSize(3, new int[] { 2, 6, 5, 1, 4, 3, 10, 7 }).ToString()
             //    );
 
-            var indices = SlidingWindow_Practice.TwoSum(new int[] { 1, 3, 3, 4 }, 5);
-            Console.WriteLine($"\nTwo Sum Indices: {indices[0]} , {indices[1]}");
-            #endregion
+            //var indices = SlidingWindow_Practice.TwoSum_BruteForce(new int[] { 1, 3, 3, 4 }, 5);
+            //Console.WriteLine($"\nTwo Sum (Brute Force) Indices: {indices[0]} , {indices[1]}");
 
+            var indices2 = SlidingWindow_Practice.TwoSum(new int[] { 1, 3, 3, 4 }, 6);
+            Console.WriteLine($"\nTwo Sum Indices: {indices2[0]} , {indices2[1]}");            
+            
+            #endregion
 
             #endregion
 
