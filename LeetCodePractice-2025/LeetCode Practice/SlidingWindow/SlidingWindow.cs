@@ -100,8 +100,6 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
             for (int i = 0; i < numbers.Length; i++)
             {
                 var value = target - numbers[i];
-                //As problem states: "...and you may not use the same element twice";
-                var difference = target - numbers[i];
 
                 if (seen.TryGetValue(value, out int j))
                     return new int[] { i, j };
@@ -110,10 +108,38 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
             }
 
             return Array.Empty<int>();
-            }
-
-            return new int[] { };
         }
 
+        //Find the List of First Negative Numbers from the Window of Size N
+        public static List<int> FirstNegativeNumberOfWindow(int[] numbers, int windowSize)
+        {
+            if (numbers is null || numbers.Length == 0 || windowSize == 0)
+                return new List<int>();
+            
+            var queue = new Queue<int>();
+            var negatives = new List<int>();
+            int start = 0;
+
+            for(int end=0; end < numbers.Length; end++)
+            {
+                if (numbers[end] < 0)
+                    queue.Enqueue(numbers[end]);
+
+                if(end - start + 1 == windowSize)
+                {
+                    if (queue.Count > 0)
+                        negatives.Add(queue.Peek());
+                    else
+                        negatives.Add(0);
+
+                    if (queue.Count > 0 && queue.Peek() == numbers[start])
+                        queue.Dequeue();
+
+                    start++;
+                }
+            }
+
+            return negatives;
+        }
     }
 }

@@ -31,8 +31,10 @@ namespace MyApp
             //Console.WriteLine($"\nTwo Sum (Brute Force) Indices: {indices[0]} , {indices[1]}");
 
             var indices2 = SlidingWindow_Practice.TwoSum(new int[] { 1, 3, 3, 4 }, 6);
-            Console.WriteLine($"\nTwo Sum Indices: {indices2[0]} , {indices2[1]}");            
-            
+            Console.WriteLine($"\nTwo Sum Indices: {indices2[0]} , {indices2[1]}");
+
+            var negatives = SlidingWindow_Practice.FirstNegativeNumberOfWindow(new int[] { 12, -1, -7, 8, -15, 30, 16, 28 }, 3);
+            Console.WriteLine(string.Join(",", negatives));
             #endregion
 
             #endregion
