@@ -99,7 +99,7 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
 
             for (int i = 0; i < numbers.Length; i++)
             {
-                //Additional check to make sure same index is not used twice.
+                var value = target - numbers[i];
                 //As problem states: "...and you may not use the same element twice";
                 var difference = target - numbers[i];
 
