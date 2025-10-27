@@ -84,15 +84,18 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
             return null;
         }
 
+        // Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+        // You may assume that each input would have exactly one solution, and you may not use the same element twice.
+        // You can return the answer in any order.
+
+        //Used Capacity to avoid resizing. 
+        //Used TryGetValue to avoid ContainsKey lookups.
         public static int[] TwoSum(int[] numbers, int target)
         {
-            if (numbers.Length < 2) return null;
+            if (numbers.Length < 2)
+                return Array.Empty<int>();
 
-            var elements = new Dictionary<int, int>();
-            var indices = new int[2];
-            for (int i = 0; i < numbers.Length; i++)
-                //In case of multiple same numbers, this line will update the value of the existing key
-                elements[numbers[i]] = i;
+            var seen = new Dictionary<int, int>(capacity: numbers.Length);
 
             for (int i = 0; i < numbers.Length; i++)
             {
@@ -100,8 +103,13 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
                 //As problem states: "...and you may not use the same element twice";
                 var difference = target - numbers[i];
 
-                if (elements.ContainsKey(difference) && i != elements[difference])
-                    return new int[] { i, elements[difference] };
+                if (seen.TryGetValue(value, out int j))
+                    return new int[] { i, j };
+
+                seen[numbers[i]] = i;
+            }
+
+            return Array.Empty<int>();
             }
 
             return new int[] { };
