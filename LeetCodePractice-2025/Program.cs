@@ -18,7 +18,7 @@ namespace MyApp
             #region Practice Oct 23, 2025 Onwards
 
             #region SlidingWindow
-            
+
             //Console.Write("Max Sum of Window Size Result: " + 
             //    SlidingWindow_Practice.MaxSumOfWindowSize(3, new int[] { 2, 6, 5, 1, 4, 3, 10, 7 }).ToString()
             //    );
@@ -35,6 +35,12 @@ namespace MyApp
 
             var negatives = SlidingWindow_Practice.FirstNegativeNumberOfWindow(new int[] { 12, -1, -7, 8, -15, 30, 16, 28 }, 3);
             Console.WriteLine(string.Join(",", negatives));
+
+            var anagramCount = SlidingWindow_Practice.OccurrenceOfAnagram("aabaabaa", "aaba");
+            Console.WriteLine($"Occurance of Anagram: {anagramCount.ToString()}");
+
+            var maximumsOfWindowSize = SlidingWindow_Practice.MaximumsOfSubArray(new int[] { 1, 3, -1, -3, 5, 3, 6, 7 }, 3);
+            Console.WriteLine(string.Join(",", maximumsOfWindowSize));
             #endregion
 
             #endregion

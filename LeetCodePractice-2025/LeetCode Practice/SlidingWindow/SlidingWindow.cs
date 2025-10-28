@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -115,22 +116,19 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
         {
             if (numbers is null || numbers.Length == 0 || windowSize == 0)
                 return new List<int>();
-            
+
             var queue = new Queue<int>();
             var negatives = new List<int>();
             int start = 0;
 
-            for(int end=0; end < numbers.Length; end++)
+            for (int end = 0; end < numbers.Length; end++)
             {
                 if (numbers[end] < 0)
                     queue.Enqueue(numbers[end]);
 
-                if(end - start + 1 == windowSize)
+                if (end - start + 1 == windowSize)
                 {
-                    if (queue.Count > 0)
-                        negatives.Add(queue.Peek());
-                    else
-                        negatives.Add(0);
+                    negatives.Add(queue.Count > 0 ? queue.Peek() : 0);
 
                     if (queue.Count > 0 && queue.Peek() == numbers[start])
                         queue.Dequeue();
@@ -141,5 +139,88 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
 
             return negatives;
         }
+
+
+        /// Find the count of anagrams present in a string
+        public static int OccurrenceOfAnagram(string values, string pattern)
+        {
+            if (values == null || values.Length == 0 || pattern == null || pattern.Length == 0)
+                return 0;
+
+            int start = 0;
+            int dictCount = 0;
+            int count = 0;
+            var patternSeen = new Dictionary<char, int>();
+
+            for (int i = 0; i < pattern.Length; i++)
+            {
+                if (!patternSeen.ContainsKey(pattern[i]))
+                    patternSeen.Add(pattern[i], 1);
+                else
+                    patternSeen[pattern[i]]++;
+            }
+
+            dictCount = patternSeen.Count;
+
+            for (int end = 0; end < values.Length; end++)
+            {
+                if (patternSeen.ContainsKey(values[end]))
+                    patternSeen[values[end]]--;
+
+                if (patternSeen.ContainsKey(values[end]) && patternSeen[values[end]] == 0)
+                    dictCount--;
+
+                if (end - start + 1 == pattern.Length)
+                {
+                    if (dictCount == 0)
+                        count++;
+
+                    if (patternSeen.ContainsKey(values[start]))
+                    {
+                        if (patternSeen[values[start]] == 0)
+                            dictCount++;
+                        patternSeen[values[start]]++;
+                    }
+                    start++;
+                }
+            }
+
+            return count;
+        }
+
+        public static List<int> MaximumsOfSubArray(int[] numbers, int windowSize)
+        {
+            if (numbers == null || numbers.Length == 0 || windowSize == 0)
+                return new List<int>();
+
+            var tempMax = new Queue<int>();
+            var maximums = new List<int>();
+            int start = 0;
+
+            for (int end = 0; end < numbers.Length; end++)
+            {
+                if (tempMax.Count == 0)
+                    tempMax.Enqueue(numbers[end]);
+
+                if (tempMax.Peek() < numbers[end])
+                {
+                    tempMax.Dequeue();
+                    tempMax.Enqueue(numbers[end]);
+                }
+
+                if (end - start + 1 == windowSize)
+                {
+                    maximums.Add(tempMax.Peek());
+
+                    if (numbers[start] == tempMax.Peek())
+                        tempMax.Dequeue();
+
+                    start++;
+                }
+            }
+
+            return maximums;
+        }
+
     }
 }
