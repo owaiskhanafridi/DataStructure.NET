@@ -31,7 +31,7 @@ namespace MyApp
             //Console.WriteLine($"\nTwo Sum (Brute Force) Indices: {indices[0]} , {indices[1]}");
 
             var indices2 = SlidingWindow_Practice.TwoSum(new int[] { 1, 3, 3, 4 }, 6);
-            Console.WriteLine($"\nTwo Sum Indices: {indices2[0]} , {indices2[1]}");
+            Console.WriteLine($"Two Sum Indices: {indices2[0]} , {indices2[1]}");
 
             var negatives = SlidingWindow_Practice.FirstNegativeNumberOfWindow(new int[] { 12, -1, -7, 8, -15, 30, 16, 28 }, 3);
             Console.WriteLine(string.Join(",", negatives));
@@ -41,6 +41,8 @@ namespace MyApp
 
             var maximumsOfWindowSize = SlidingWindow_Practice.MaximumsOfSubArray(new int[] { 1, 3, -1, -3, 5, 3, 6, 7 }, 3);
             Console.WriteLine(string.Join(",", maximumsOfWindowSize));
+            var profit = SlidingWindow_Practice.BestTimeToBuyOrSellStocks(new int[] { 7, 1, 5, 3, 6, 4 });
+            Console.WriteLine($"The Max Profit for buy and sell stock is {profit}");
             #endregion
 
             #endregion

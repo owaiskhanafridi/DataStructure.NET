@@ -224,5 +224,22 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
 
 
         //Best time to buy and sell stocks
+        public static int BestTimeToBuyOrSellStocks(int[] prices)
+        {
+            int maxProfit = 0;
+            int buyDay = 0;
+
+            for (int sellDay = buyDay + 1; sellDay < prices.Length; sellDay++)
+            {
+                var runningProfit = prices[sellDay] - prices[buyDay];
+                if (runningProfit < 0)
+                {
+                    buyDay = sellDay;
+                }
+                else
+                    maxProfit = Math.Max(maxProfit, runningProfit);
+            }
+            return maxProfit;
+        }
     }
 }
