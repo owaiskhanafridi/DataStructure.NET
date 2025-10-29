@@ -41,9 +41,14 @@ namespace MyApp
 
             var maximumsOfWindowSize = SlidingWindow_Practice.MaximumsOfSubArray(new int[] { 1, 3, -1, -3, 5, 3, 6, 7 }, 3);
             Console.WriteLine(string.Join(",", maximumsOfWindowSize));
+
             var profit = SlidingWindow_Practice.BestTimeToBuyOrSellStocks(new int[] { 7, 1, 5, 3, 6, 4 });
             Console.WriteLine($"The Max Profit for buy and sell stock is {profit}");
+
+            var uniqueCount = SlidingWindow_Practice.RemoveDuplicates(new int[] { 1, 1, 2, 2, 3, 3, 4, 5, 6, 6 });
+            Console.WriteLine($"Unique Number Count is {uniqueCount}");
             #endregion
+
 
             #endregion
 

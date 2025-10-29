@@ -188,6 +188,7 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
             return count;
         }
 
+        //Find the maximum numbers from each sub array of given windowSize 
         public static List<int> MaximumsOfSubArray(int[] numbers, int windowSize)
         {
             if (numbers == null || numbers.Length == 0 || windowSize == 0)
@@ -241,5 +242,41 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
             }
             return maxProfit;
         }
+
+        //Remove Duplicates from the array and return unique numbers count;
+        public static int RemoveDuplicates(int[] nums)
+        {
+            if (nums.Length == 0)
+                return 0;
+            int left = 1;
+
+            for (int right = 1; right < nums.Length; right++)
+            {
+                if (nums[right] != nums[right - 1])
+                {
+                    nums[left] = nums[right];
+                    left++;
+                }
+
+            }
+            return left;
+        }
+
+        //Check if any duplicates are present in the array
+        public static bool ContainsDuplicate(int[] nums)
+        {
+            var seen = new HashSet<int>();
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (!seen.Contains(nums[i]))
+                    seen.Add(nums[i]);
+                else
+                    return true;
+            }
+
+            return false;
+        }
+
     }
 }
