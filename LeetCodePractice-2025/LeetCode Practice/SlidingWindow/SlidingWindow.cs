@@ -57,7 +57,7 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
         public static int[] TwoSum_BruteForce(int[] numbers, int target)
         {
             if (numbers.Length < 2)
-                return null;
+                return Array.Empty<int>();
 
             var indices = new int[2];
             int start = 0;
@@ -222,5 +222,7 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
             return maximums;
         }
 
+
+        //Best time to buy and sell stocks
     }
 }
