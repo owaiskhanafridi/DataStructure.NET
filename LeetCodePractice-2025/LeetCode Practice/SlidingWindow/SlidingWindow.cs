@@ -289,7 +289,6 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
             symbols.Add('C', 100);
             symbols.Add('D', 500);
             symbols.Add('M', 1000);
-
             int runningSum = 0;
 
             for (int i = 0; i < s.Length; i++)
@@ -304,5 +303,41 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
             return runningSum;
         }
 
+        public static string IntToRoman(int number)
+        {
+            var symbols = new Dictionary<string, int>()
+            {
+                ["I"] = 1,
+                ["IV"] = 4,
+                ["V"] = 5,
+                ["IX"] = 9,
+                ["X"] = 10,
+                ["XL"] = 40,
+                ["L"] = 50,
+                ["XC"] = 90,
+                ["C"] = 100,
+                ["CD"] = 400,
+                ["D"] = 500,
+                ["CM"] = 900,
+                ["M"] = 1000,
+            };
+            var sb = new StringBuilder();
+
+            foreach (var item in symbols.Reverse())
+            {
+                if (number / item.Value != 0)
+                {
+                    var count = number / item.Value;
+                    while (count > 0)
+                    {
+                        sb.Append(item.Key);
+                        count--;
+                    }
+                    number = number % item.Value;
+                }
+            }
+
+            return sb.ToString();
+        }
     }
 }

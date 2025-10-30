@@ -50,7 +50,10 @@ namespace MyApp
 
             var romanToInt = SlidingWindow_Practice.RomanToInt("XXVIII");
             Console.WriteLine($"Roman --> Integer Conversion: {romanToInt}");
-            
+
+            var intToRoman = SlidingWindow_Practice.IntToRoman(1994);
+            Console.WriteLine($"Integer -- Roman Conversion: {intToRoman}");
+
             #endregion
 
 
