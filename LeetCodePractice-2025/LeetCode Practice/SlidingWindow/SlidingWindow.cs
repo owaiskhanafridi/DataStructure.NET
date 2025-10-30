@@ -278,5 +278,31 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
             return false;
         }
 
+        //Convert Roman number to Integer
+        public static int RomanToInt(string s)
+        {
+            var symbols = new Dictionary<char, int>();
+            symbols.Add('I', 1);
+            symbols.Add('V', 5);
+            symbols.Add('X', 10);
+            symbols.Add('L', 50);
+            symbols.Add('C', 100);
+            symbols.Add('D', 500);
+            symbols.Add('M', 1000);
+
+            int runningSum = 0;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                //first check makes sure the other check doesn't throw out of bound error.
+                //second check ensures if the pre no is lesser then next, decrement the total
+                if ( i < s.Length - 1 && symbols[s[i]] < symbols[s[i + 1]])
+                    runningSum -= symbols[s[i]];
+                else
+                    runningSum += symbols[s[i]];
+            }
+            return runningSum;
+        }
+
     }
 }

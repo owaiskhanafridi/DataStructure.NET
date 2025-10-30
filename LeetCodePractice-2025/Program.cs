@@ -47,6 +47,10 @@ namespace MyApp
 
             var uniqueCount = SlidingWindow_Practice.RemoveDuplicates(new int[] { 1, 1, 2, 2, 3, 3, 4, 5, 6, 6 });
             Console.WriteLine($"Unique Number Count is {uniqueCount}");
+
+            var romanToInt = SlidingWindow_Practice.RomanToInt("XXVIII");
+            Console.WriteLine($"Roman --> Integer Conversion: {romanToInt}");
+            
             #endregion
 
 
