@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
 {
@@ -102,6 +97,8 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
             {
                 var value = target - numbers[i];
 
+                //Better than .ContainsKey because .ContainsKey() involves 2 lookups,
+                //first seen.ContainsKey(..) and then seen[value]. while tryGetValue can do it in single lookup.
                 if (seen.TryGetValue(value, out int j))
                     return new int[] { i, j };
 
@@ -154,10 +151,8 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
 
             for (int i = 0; i < pattern.Length; i++)
             {
-                if (!patternSeen.ContainsKey(pattern[i]))
-                    patternSeen.Add(pattern[i], 1);
-                else
-                    patternSeen[pattern[i]]++;
+                patternSeen[pattern[i]] = patternSeen.GetValueOrDefault(pattern[i]) + 1;
+
             }
 
             dictCount = patternSeen.Count;
@@ -222,7 +217,6 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
 
             return maximums;
         }
-
 
         //Best time to buy and sell stocks
         public static int BestTimeToBuyOrSellStocks(int[] prices)
@@ -295,7 +289,7 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
             {
                 //first check makes sure the other check doesn't throw out of bound error.
                 //second check ensures if the pre no is lesser then next, decrement the total
-                if ( i < s.Length - 1 && symbols[s[i]] < symbols[s[i + 1]])
+                if (i < s.Length - 1 && symbols[s[i]] < symbols[s[i + 1]])
                     runningSum -= symbols[s[i]];
                 else
                     runningSum += symbols[s[i]];
@@ -303,6 +297,7 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
             return runningSum;
         }
 
+        //Convert Int to Roman
         public static string IntToRoman(int number)
         {
             var symbols = new Dictionary<string, int>()
@@ -338,6 +333,75 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
             }
 
             return sb.ToString();
+        }
+
+        //Find the length of longest substring with K unique characters
+        public static int LongestSubstringWithKUniqueCharacters(string s, int uniques)
+        {
+            if (string.IsNullOrEmpty(s) || uniques == 0)
+                return 0;
+
+            var elements = new Dictionary<char, int>();
+            int runningLength = 0;
+            int maxLength = 0;
+            int start = 0;
+
+            for (int end = 0; end < s.Length; end++)
+            {
+                if (elements.Count < uniques)
+                {
+                    runningLength++;
+
+                    if (!elements.ContainsKey(s[end]))
+                        elements.Add(s[end], 1);
+                    else
+                        elements[s[end]]++;
+                }
+                else if (elements.Count > uniques)
+                {
+                    while (elements.Count > uniques)
+                    {
+                        elements[s[start]]--;
+
+                        if (elements[s[start]] == 0)
+                            elements.Remove(s[start]);
+
+                        start++;
+                    }
+                }
+
+                else if (elements.Count == uniques)
+                {
+                    maxLength = Math.Max(maxLength, runningLength);
+                }
+            }
+
+            return maxLength;
+        }
+
+        //Find the length of Largest Sub Array which makes up to a given sum
+        //If there are -ve numbers, this can be handled with prefix-sum + earliest index map
+        public static int LargestSubArrayOfSum(int[] numbers, int target)
+        {
+            if (numbers.Length == 0 || target == 0)
+                return 0;
+
+            int maxSizeOfArray = 0;
+            int runningSum = 0;
+            int start = 0;
+
+            for (int end = 0; end < numbers.Length; end++)
+            {
+                runningSum += numbers[end];
+
+                while (runningSum > target && start <= end)
+                    runningSum -= numbers[start++];
+
+                if (runningSum == target)
+                    maxSizeOfArray = Math.Max(maxSizeOfArray, end - start + 1);
+            }
+
+            return maxSizeOfArray;
         }
     }
 }

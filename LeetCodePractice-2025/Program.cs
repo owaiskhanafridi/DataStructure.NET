@@ -54,6 +54,15 @@ namespace MyApp
             var intToRoman = SlidingWindow_Practice.IntToRoman(1994);
             Console.WriteLine($"Integer -- Roman Conversion: {intToRoman}");
 
+            var maxLength = SlidingWindow_Practice.LongestSubstringWithKUniqueCharacters("aabacbebebe", 3);
+            Console.WriteLine($"Max Length of the substring is {maxLength}");
+            
+            var maxLengthOfSubArray = SlidingWindow_Practice.LargestSubArrayOfSum(new int[] { 4,1,1,1,2,3,5}, 5);
+            Console.WriteLine($"Maximum Length of SubArray Making up to a sum is {maxLengthOfSubArray}");
+
+            var anagramCount1 = SlidingWindow_Practice.OccurrenceOfAnagram("aabacaabaaba", "aaba");
+            Console.WriteLine($"Anagram Count: {anagramCount1}");
+
             #endregion
 
 
@@ -79,8 +88,6 @@ namespace MyApp
             //SlidingWindow.MaxOfAllSubArray_Practice(new int[] { 1, 3, -1, -3, 5, 3, 6, 7 }, 3);
             //Console.WriteLine(SlidingWindow.PickToysOfNTypeWithSequence_Practice("abaccab", 2));
             //Console.WriteLine(SlidingWindow.RemoveDuplicatesFromSorterArray(new int[] { 0, 0, 1, 1, 2, 2, 3, 3, 4 }));
-
-
             //Console.WriteLine($"Occurance of anagram: {SlidingWindow.OccuranceOfAnagram_FinalPractice("aabaabaa", "aaba")}");
 
 
