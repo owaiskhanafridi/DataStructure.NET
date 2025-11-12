@@ -255,7 +255,7 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
             }
             return left;
         }
-
+        
         //Check if any duplicates are present in the array
         public static bool ContainsDuplicate(int[] nums)
         {
@@ -320,13 +320,14 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
 
             foreach (var item in symbols.Reverse())
             {
-                if (number / item.Value != 0)
+                var quotient = number / item.Value;
+
+                if (quotient != 0)
                 {
-                    var count = number / item.Value;
-                    while (count > 0)
+                    while (quotient > 0)
                     {
                         sb.Append(item.Key);
-                        count--;
+                        quotient--;
                     }
                     number = number % item.Value;
                 }
