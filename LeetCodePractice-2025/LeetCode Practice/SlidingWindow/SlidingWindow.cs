@@ -380,6 +380,54 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
             return maxLength;
         }
 
+        public static int LongestSubstringWithKUniqueCharacters_PRACTICE(string value, int uniqueCount)
+        {
+            var seen = new Dictionary<char, int>();
+            int charCount = 0;
+            //	int seenCount = 0;
+            int start = 0;
+            int maxCharCount = 0;
+
+            for (int end = 0; end < value.Length; end++)
+            {
+                //seen[value[end]] = seen.GetValueOrDefault(seen[value[end]]) + 1;
+
+                if (seen.Count < uniqueCount)
+                {
+                    if (!seen.ContainsKey(value[end]))
+                    {
+                        seen.Add(value[end], 1);
+                    }
+                    else
+                        seen[value[end]]++;
+
+                    charCount++;
+                }
+
+
+                else if (seen.Count > uniqueCount)
+                {
+                    while (seen.Count > uniqueCount)
+                    {
+                        seen[value[start]]--;
+                        if (seen[value[start]] == 0)
+                            seen.Remove(value[start]);
+
+                        start++;
+                        charCount--;
+                    }
+                }
+
+                else if (seen.Count == uniqueCount)
+                {
+                    maxCharCount = Math.Max(charCount, maxCharCount);
+                }
+            }
+
+            return maxCharCount;
+
+        }
+
         //Find the length of Largest Sub Array which makes up to a given sum
         //If there are -ve numbers, this can be handled with prefix-sum + earliest index map
         public static int LargestSubArrayOfSum(int[] numbers, int target)
