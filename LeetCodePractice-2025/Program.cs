@@ -1,4 +1,5 @@
 ﻿using LeetCodePractice_2025;
+using LeetCodePractice_2025.CSharp;
 using LeetCodePractice_2025.LeetCode_Practice.SlidingWindow;
 using System;
 using System.ComponentModel.Design;
@@ -13,6 +14,16 @@ namespace MyApp
         static void Main(string[] args)
         {
             Console.WriteLine("Starting application...");
+
+
+            #region C# Practice
+            
+            //used to be called as var csOldStyle = new CSharp();
+            CSharp cs = new();
+            cs.Practice();
+
+            #endregion
+
 
 
             #region Practice Oct 23, 2025 Onwards
@@ -30,38 +41,41 @@ namespace MyApp
             //var indices = SlidingWindow_Practice.TwoSum_BruteForce(new int[] { 1, 3, 3, 4 }, 5);
             //Console.WriteLine($"\nTwo Sum (Brute Force) Indices: {indices[0]} , {indices[1]}");
 
-            var indices2 = SlidingWindow_Practice.TwoSum(new int[] { 1, 3, 3, 4 }, 6);
-            Console.WriteLine($"Two Sum Indices: {indices2[0]} , {indices2[1]}");
+            //var indices2 = SlidingWindow_Practice.TwoSum(new int[] { 1, 3, 3, 4 }, 6);
+            //Console.WriteLine($"Two Sum Indices: {indices2[0]} , {indices2[1]}");
 
-            var negatives = SlidingWindow_Practice.FirstNegativeNumberOfWindow(new int[] { 12, -1, -7, 8, -15, 30, 16, 28 }, 3);
-            Console.WriteLine(string.Join(",", negatives));
+            //var negatives = SlidingWindow_Practice.FirstNegativeNumberOfWindow(new int[] { 12, -1, -7, 8, -15, 30, 16, 28 }, 3);
+            //Console.WriteLine(string.Join(",", negatives));
 
-            var anagramCount = SlidingWindow_Practice.OccurrenceOfAnagram("aabaabaa", "aaba");
-            Console.WriteLine($"Occurance of Anagram: {anagramCount.ToString()}");
+            //var anagramCount = SlidingWindow_Practice.OccurrenceOfAnagram("aabaabaa", "aaba");
+            //Console.WriteLine($"Occurance of Anagram: {anagramCount.ToString()}");
 
-            var maximumsOfWindowSize = SlidingWindow_Practice.MaximumsOfSubArray(new int[] { 1, 3, -1, -3, 5, 3, 6, 7 }, 3);
-            Console.WriteLine(string.Join(",", maximumsOfWindowSize));
+            //var maximumsOfWindowSize = SlidingWindow_Practice.MaximumsOfSubArray(new int[] { 1, 3, -1, -3, 5, 3, 6, 7 }, 3);
+            //Console.WriteLine(string.Join(",", maximumsOfWindowSize));
 
-            var profit = SlidingWindow_Practice.BestTimeToBuyOrSellStocks(new int[] { 7, 1, 5, 3, 6, 4 });
-            Console.WriteLine($"The Max Profit for buy and sell stock is {profit}");
+            //var profit = SlidingWindow_Practice.BestTimeToBuyOrSellStocks(new int[] { 7, 1, 5, 3, 6, 4 });
+            //Console.WriteLine($"The Max Profit for buy and sell stock is {profit}");
 
-            var uniqueCount = SlidingWindow_Practice.RemoveDuplicates(new int[] { 1, 1, 2, 2, 3, 3, 4, 5, 6, 6 });
-            Console.WriteLine($"Unique Number Count is {uniqueCount}");
+            //var uniqueCount = SlidingWindow_Practice.RemoveDuplicates(new int[] { 1, 1, 2, 2, 3, 3, 4, 5, 6, 6 });
+            //Console.WriteLine($"Unique Number Count is {uniqueCount}");
 
-            var romanToInt = SlidingWindow_Practice.RomanToInt("XXVIII");
-            Console.WriteLine($"Roman --> Integer Conversion: {romanToInt}");
+            //var romanToInt = SlidingWindow_Practice.RomanToInt("XXVIII");
+            //Console.WriteLine($"Roman --> Integer Conversion: {romanToInt}");
+
+            //var intToRoman = SlidingWindow_Practice.IntToRoman(1994);
+            //Console.WriteLine($"Integer -- Roman Conversion: {intToRoman}");
 
             //var maxLength = SlidingWindow_Practice.LongestSubstringWithKUniqueCharacters("aabacbebebe", 3);
             //Console.WriteLine($"Max Length of the substring is {maxLength}");
 
-            var maxLength = SlidingWindow_Practice.LongestSubstringWithKUniqueCharacters("aabacbebebe", 3);
-            Console.WriteLine($"Max Length of the substring is {maxLength}");
-            
-            var maxLengthOfSubArray = SlidingWindow_Practice.LargestSubArrayOfSum(new int[] { 4,1,1,1,2,3,5}, 5);
-            Console.WriteLine($"Maximum Length of SubArray Making up to a sum is {maxLengthOfSubArray}");
+            //var maxLength2 = SlidingWindow_Practice.LongestSubstringWithKUniqueCharacters_PRACTICE("aabacbebebe", 3);
+            //Console.WriteLine($"Max Length (PRACTICE) of the substring is {maxLength2}");
 
-            var anagramCount1 = SlidingWindow_Practice.OccurrenceOfAnagram("aabacaabaaba", "aaba");
-            Console.WriteLine($"Anagram Count: {anagramCount1}");
+            //var maxLengthOfSubArray = SlidingWindow_Practice.LargestSubArrayOfSum(new int[] { 4,1,1,1,2,3,5}, 5);
+            //Console.WriteLine($"Maximum Length of SubArray Making up to a sum is {maxLengthOfSubArray}");
+
+            //var anagramCount1 = SlidingWindow_Practice.OccurrenceOfAnagram("aabacaabaaba", "aaba");
+            //Console.WriteLine($"Anagram Count: {anagramCount1}");
 
             #endregion
 
