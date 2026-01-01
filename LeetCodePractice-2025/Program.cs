@@ -1,5 +1,6 @@
 ﻿using LeetCodePractice_2025;
 using LeetCodePractice_2025.CSharp;
+using LeetCodePractice_2025.CSharp.Extensions;
 using LeetCodePractice_2025.LeetCode_Practice.SlidingWindow;
 using System;
 using System.ComponentModel.Design;
@@ -17,10 +18,21 @@ namespace MyApp
 
 
             #region C# Practice
-            
+
+            CSharp.constructorCheck = 20;
+
             //used to be called as var csOldStyle = new CSharp();
             CSharp cs = new();
             cs.Practice();
+
+            CSharp cs1 = new();
+            cs1.Practice();
+
+            // Calling custom string extension method
+            string departmentName = "Platform";
+            Console.WriteLine(departmentName.PreAppendCompanyName());
+
+
 
             #endregion
 
