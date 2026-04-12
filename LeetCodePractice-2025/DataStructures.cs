@@ -353,7 +353,7 @@ namespace LeetCodePractice_2025
             //rows must be defined
             int[][] arr1 = new int[2][];
 
-            //initializing first array of arr to contain an array of size 2. Example: [2,3
+            //initializing first array of arr to contain an array of size 2. Example: [2,3]
             arr1[0] = new int[2];
 
             //This operation cannot happen directly without initializing the array in above line.
@@ -376,7 +376,7 @@ namespace LeetCodePractice_2025
 
         public static void Enums()
         {
-
+            
         }
 
 

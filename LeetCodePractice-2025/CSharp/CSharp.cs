@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -94,7 +96,7 @@ namespace LeetCodePractice_2025.CSharp
 
         public int PerformOperation(int a, int b, Operation operation)
         => operation(a, b);
-        
+
         //class myClass
         //{
         //    public int MyProperty { get; set; }
@@ -126,7 +128,6 @@ namespace LeetCodePractice_2025.CSharp
             int addResult = PerformOperation(10, 4, AddOperation);
             int multiplyResult = PerformOperation(10, 4, MultiplyOperation);
             int substractResult = PerformOperation(10, 4, SubtractOperation);
-
 
             LogMessage logger = LogToConsole;
             logger += LogToFile;
@@ -175,8 +176,7 @@ namespace LeetCodePractice_2025.CSharp
             //int size = Marshal.SizeOf(typeof(empStruct));
             //Console.WriteLine($"class size: { Marshal.SizeOf(typeof(EmployeeClass)) }");
 
-
-            // Using with to extend/update properties or a record
+            // Using with to extend/update properties of a record
             var u1 = new User("Edward", 25000);
             var u2 = u1 with { Salary = 96000, Id = 3 };
 
@@ -194,6 +194,8 @@ namespace LeetCodePractice_2025.CSharp
 
             //Using Example
             // Automatically disposes the resource
+            //What happens internally when "using" statement is used: try { // Use resource } finally { resource?.Dispose();  }
+
             using (var stream = new FileStream("file.txt", FileMode.Open))
             {
                 //Read from stream
@@ -256,7 +258,6 @@ namespace LeetCodePractice_2025.CSharp
         public void Talk() => Console.WriteLine("Human can talk");
         public void Walk() => Console.WriteLine("Human can walk");
         public virtual void Eat() => Console.WriteLine("Human can Eat");
-
     }
 
     class Asian : Human
@@ -297,5 +298,17 @@ namespace LeetCodePractice_2025.CSharp
             => Console.WriteLine("Cow Mooooooanss");
     }
 
+    // With C# 8 (launched in 2019), Interfaces can now have implementation of methods.
+    // This feature was mainly added to allow library authors to evolve interfaces (add new methods)
+    // without breaking existing implementations (backward compatibility)
+    public interface IElectronics
+    {
+        void Open();
+        void Close();
+        void Function()
+        {
+            Console.WriteLine("aaa/co");
+        }
+    }
 
 }
