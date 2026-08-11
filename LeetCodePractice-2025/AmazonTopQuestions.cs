@@ -33,9 +33,6 @@ namespace LeetCodePractice_2025
                 }
             }
 
-            var test = new int[nums.Length];
-            test.All(x => x != 0);
-
             return new int[] { };
         }
 

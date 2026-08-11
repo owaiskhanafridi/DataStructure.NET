@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic.FileIO;
+﻿using LeetCodePractice_2025.CSharp.Extensions;
+using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,10 @@ namespace LeetCodePractice_2025.CSharp
         static CSharp()
         {
             firstName = "";
+            role = "asdasd";
+            role = "ASAASAS";
+
+            role.PreAppendCompanyName();
         }
 
         //Access Modifiers
@@ -40,7 +45,8 @@ namespace LeetCodePractice_2025.CSharp
 
         //Const vs ReadOnly 
         const string compnay = "DGS";
-        readonly string role = "Engineer";
+        static readonly string role = "Engineer";
+
 
         //Value Type
         byte valueByte = 123;              // Range: 0 to 255 (8-bit unsigned integer)
@@ -107,6 +113,23 @@ namespace LeetCodePractice_2025.CSharp
         record User(string Name, decimal Salary, int Id = 1);
         public async Task Practice()
         {
+
+            
+            //Reflections in C#
+
+            var type = typeof(EmployeeClass);
+            Console.WriteLine(type.FullName);
+
+            var props = type.GetProperties();
+            var methods = type.GetMethods();
+            var method = type.GetMethod("CalculateSalary");
+            
+            // Create instance
+            var obj = Activator.CreateInstance(type);
+
+            var salary = method!.Invoke(obj, new object[] { 20, 20 });
+
+
             //Create var when the type is obvious from the right side.
             //Var can also be created for LINQ query results and in the foreach(var item in items)..
             //Var doesn't give any advantage for memory
@@ -217,6 +240,10 @@ namespace LeetCodePractice_2025.CSharp
         public string Name { get; set; }
         public byte Age { get; set; }
         public decimal Salary { get; set; }
+
+        public int CalculateSalary(int salary, int tax)
+            => salary - (salary * tax);
+
     }
 
     public struct EmployeeStruct

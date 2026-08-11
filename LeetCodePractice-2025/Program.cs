@@ -1,6 +1,7 @@
 ﻿using LeetCodePractice_2025;
 using LeetCodePractice_2025.CSharp;
 using LeetCodePractice_2025.CSharp.Extensions;
+using LeetCodePractice_2025.InterviewPractice.Meijer_SSE_Pos;
 using LeetCodePractice_2025.LeetCode_Practice.SlidingWindow;
 using System;
 using System.ComponentModel.Design;
@@ -16,21 +17,42 @@ namespace MyApp
         {
             Console.WriteLine("Starting application...");
 
+            #region MeijerPosSystem
+
+            //var apple = new Item(1, "Apple", 1.50m);
+            //var milk = new Item(2, "Milk", 3.25m);
+            //var bread = new Item(3, "Bread", 2.75m);
+
+            //var cart = new Cart();
+            //cart.AddItem(apple, 3);
+            //cart.AddItem(milk, 1);
+            //cart.AddItem(bread, 2);
+
+            //var payment = new Payment(PaymentMethod.Cash, 20.00m);
+
+            //var posService = new PosService(0.06m); // 6% tax
+            //var receipt = posService.Checkout(cart, payment);
+
+            //receipt.Print();
+
+            #endregion
+
+
 
             #region C# Practice
 
-            CSharp.constructorCheck = 20;
+            //CSharp.constructorCheck = 20;
 
-            //used to be called as var csOldStyle = new CSharp();
+            ////used to be called as var csOldStyle = new CSharp();
             CSharp cs = new();
             cs.Practice();
 
-            CSharp cs1 = new();
-            cs1.Practice();
+            //CSharp cs1 = new();
+            //cs1.Practice();
 
-            // Calling custom string extension method
-            string departmentName = "Platform";
-            Console.WriteLine(departmentName.PreAppendCompanyName());
+            //// Calling custom string extension method
+            //string departmentName = "Platform";
+            //Console.WriteLine(departmentName.PreAppendCompanyName());
 
 
 
@@ -99,7 +121,7 @@ namespace MyApp
 
             #region Stack - Callings
 
-            Stack.NextClosestLargeElementAtRight(new int[] { 1, 3, 2, 4 });
+            //Stack.NextClosestLargeElementAtRight(new int[] { 1, 3, 2, 4 });
 
             #endregion
 
@@ -113,7 +135,7 @@ namespace MyApp
             //Console.WriteLine(SlidingWindow.LargestSubArrayOfSum_Practice(new int[] { 4, 1, 1, 1, 2, 3, 5 }, 5));
             //SlidingWindow.MaxOfAllSubArray_Practice(new int[] { 1, 3, -1, -3, 5, 3, 6, 7 }, 3);
             //Console.WriteLine(SlidingWindow.PickToysOfNTypeWithSequence_Practice("abaccab", 2));
-            //Console.WriteLine(SlidingWindow.RemoveDuplicatesFromSorterArray(new int[] { 0, 0, 1, 1, 2, 2, 3, 3, 4 }));
+            Console.WriteLine(SlidingWindow.RemoveDuplicatesFromSorterArray(new int[] { 0, 0, 1, 1, 2, 2, 3, 3, 4 }));
             //Console.WriteLine($"Occurance of anagram: {SlidingWindow.OccuranceOfAnagram_FinalPractice("aabaabaa", "aaba")}");
 
 
@@ -163,13 +185,13 @@ namespace MyApp
             //    }, 1, 3);
 
 
-            BreathFirstSearch.CreateAdjacencyList_Practice(
-                new int[][] {
-                    new int[] { 0, 1},
-                    new int[] { 1,2},
-                    new int[] { 2, 0},
-                }
-);
+            //            BreathFirstSearch.CreateAdjacencyList_Practice(
+            //                new int[][] {
+            //                    new int[] { 0, 1},
+            //                    new int[] { 1,2},
+            //                    new int[] { 2, 0},
+            //                }
+            //);
 
             //BreathFirstSearch.CreateAdjacencyList_Practice(
             //    new int[][] {
@@ -221,7 +243,7 @@ namespace MyApp
 
             #region Heap - Callings
 
-            //Heap.FindKSmallestElement(new int[] { 7, 10, 4, 3, 20, 15 }, 3);
+            Heap.FindKSmallestElement(new int[] { 7, 10, 4, 3, 20, 15 }, 3);
             //Heap.FindKHighestSalary(new int[] { 2000, 5000, 1000, 6000, 7000, 3000 }, 3);
             //Heap.SortKSortedArray(new int[] { 6, 5, 3, 2, 8, 10, 9 }, 3);
             //Heap.FindKLargestElements(new int[] { 7, 10, 4, 3, 20, 15 }, 3);

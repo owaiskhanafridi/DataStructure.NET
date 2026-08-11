@@ -346,6 +346,36 @@ namespace LeetCodePractice_2025
             return i;
         }
 
+
+        // Find the length of longest substring without repeating characters
+        public int LengthOfLongestSubstring(string s)
+        {
+            Dictionary<char, int> dict = new();
+            int start = 0;
+            int max = 0;
+
+            for (int end = 0; end < s.Length; end++)
+            {
+                if (!dict.ContainsKey(s[end]))
+                    dict[s[end]] = 0;
+
+                dict[s[end]]++;
+
+                while (dict[s[end]] > 1)
+                {
+                    dict[s[start]]--;
+
+                    if (dict[s[start]] == 0)
+                        dict.Remove(s[start]);
+
+                    start++;
+                }
+
+                max = Math.Max(max, end - start + 1);
+            }
+            return max;
+        }
+
         ///NEW PRACTICE
 
         //"aabaabaa", "aaba"

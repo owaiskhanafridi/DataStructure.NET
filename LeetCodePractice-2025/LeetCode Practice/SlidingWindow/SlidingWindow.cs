@@ -6,6 +6,9 @@ namespace LeetCodePractice_2025.LeetCode_Practice.SlidingWindow
     {
         public static int MaxSumOfWindowSize(int windowSize, int[] numbers)
         {
+
+            var num = numbers.Count();
+
             int runningSum = 0;
             int maxSum = int.MinValue;
             int start = 0;
